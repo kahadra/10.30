@@ -1,0 +1,11 @@
+--- book-repo/src/frameworks/langchain/stock_price_tool_use.py
++++ repro/book_runs/book_stock_price.py
+@@ -18,7 +18,7 @@
+ 
+ 
+ # Initialize the LLM with GPT-4o and bind the tools
+-llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
++llm = ChatOpenAI(model_name="qwen2.5:7b", temperature=0)
+ llm_with_tools = llm.bind_tools([get_stock_price])
+ 
+ messages = [HumanMessage("What is the stock price of Apple?")]

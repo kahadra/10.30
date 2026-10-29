@@ -1,0 +1,60 @@
+--- book-repo/src/common/mcp/MCP_weather_server.py
++++ repro/book_min/book_mcp_weather_server.py
+@@ -40,6 +40,17 @@
+     payload: PayloadResponse
+ 
+ # ─── FastAPI App ────────────────────────────────────────────────────────────────
++from mcp.server.fastmcp import FastMCP
++
++mcp = FastMCP("weather", port=8000)
++
++
++@mcp.tool(name="weather")
++def weather_tool(query: str) -> str:
++    """Answer a question like "what is the weather in nyc?" (dummy data)."""
++    return _answer(query)
++
++
+ app = FastAPI(title="Weather MCP Server")
+ 
+ @app.post("/mcp", response_model=MCPResponse)
+@@ -61,6 +72,11 @@
+     if user_msg is None:
+         raise HTTPException(status_code=400, detail="No user message in payload.")
+ 
++    return {"context": {"conversation_id": context.conversation_id, "request_id": context.request_id, "tokens_used": 0},
++            "payload": {"choices": [{"text": _answer(user_msg)}]}}
++
++
++def _answer(user_msg: str) -> str:
+     # Very naive parsing: look for a city name after "weather in "
+     city = "unknown"
+     lowered = user_msg.lower()
+@@ -78,25 +94,8 @@
+     }
+     temp = dummy_temps.get(city, "65°F (approx)")
+ 
+-    # Build response context
+-    response_context = {
+-        "conversation_id": context.conversation_id,
+-        "request_id": context.request_id,
+-        "tokens_used": 0  # set to 0 or mock value; depends on your billing model
+-    }
+-
+-    # Build response payload
+-    response_payload = {
+-        "choices": [
+-            { "text": f"The current temperature in {city.title()} is {temp}." }
+-        ]
+-    }
+-
+-    return {
+-        "context": response_context,
+-        "payload": response_payload
+-    }
++    return f"The current temperature in {city.title()} is {temp}."
+ 
+ if __name__ == "__main__":
+     # Run with: python3 weather_server.py
+-    uvicorn.run(app, host="0.0.0.0", port=8000)
++    mcp.run(transport="streamable-http")  # http://127.0.0.1:8000/mcp

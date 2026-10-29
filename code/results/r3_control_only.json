@@ -1,0 +1,43 @@
+{
+  "run_at": "2026-10-26T05:21:16+00:00",
+  "python": "3.14.4",
+  "timeout_s": 10,
+  "probes": [
+    {
+      "server": "demos\\mcp_math_server.py",
+      "steps": [
+        {
+          "step": "initialize",
+          "ok": true,
+          "server_info": {
+            "name": "math",
+            "title": null,
+            "version": "1.30.0",
+            "websiteUrl": null,
+            "icons": null
+          }
+        },
+        {
+          "step": "tools/list",
+          "ok": true,
+          "tools": [
+            "evaluate_arithmetic"
+          ]
+        },
+        {
+          "step": "tools/call",
+          "ok": true,
+          "content": [
+            {
+              "type": "text",
+              "text": "96",
+              "annotations": null,
+              "meta": null
+            }
+          ]
+        }
+      ],
+      "handshake_ok": true
+    }
+  ]
+}

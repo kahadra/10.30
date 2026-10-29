@@ -1,0 +1,11 @@
+--- book-repo/src/frameworks/langchain/wikipedia_tool_use.py
++++ repro/book_runs/book_wikipedia.py
+@@ -7,7 +7,7 @@
+ tool = WikipediaQueryRun(api_wrapper=api_wrapper)
+ 
+ # Initialize the LLM with GPT-4o and bind the tools
+-llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
++llm = ChatOpenAI(model_name="qwen2.5:7b", temperature=0)
+ llm_with_tools = llm.bind_tools([tool])
+ 
+ messages = [HumanMessage("What was the most impressive thing about Buzz Aldrin?")]

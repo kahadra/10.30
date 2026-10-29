@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T09:58:51+00:00",
+    "llm": "qwen2.5:7b via Ollama /v1"
+  },
+  "hypothesis": "the keyword router, not the book's servers, limits the MCP example",
+  "servers": "repro/book_min (book logic exposed via MCP SDK)",
+  "summary": {
+    "keyword_routing_acc": 0.4166666666666667,
+    "keyword_end_to_end": 0.25,
+    "model_routing_acc": 1.0,
+    "model_end_to_end": 0.5833333333333334
+  },
+  "verdict": "supported",
+  "rows": [
+    {
+      "query": "What is (3 + 5) * 12?",
+      "expected": "math",
+      "keyword_route": "math",
+      "keyword_output": "Error executing tool math: Error parsing expression '  (3 + 5) * 12': unexpected indent (<unknown>, line 1)",
+      "keyword_ok": false,
+      "model_route": "math",
+      "model_args": {
+        "query": "(3 + 5) * 12"
+      },
+      "model_output": "96",
+      "model_ok": true
+    },
+    {
+      "query": "Compute 2 ** 10 - 24.",
+      "expected": "math",
+      "keyword_route": "math",
+      "keyword_output": "Error executing tool math: Error parsing expression ' 2 ** 10 - 24.': unexpected indent (<unknown>, line 1)",
+      "keyword_ok": false,
+      "model_route": "math",
+      "model_args": {
+        "query": "2 ** 10 - 24"
+      },
+      "model_output": "1000",
+      "model_ok": true
+    },
+    {
+      "query": "What is twelve times eight?",
+      "expected": "math",
+      "keyword_route": "none",
+      "keyword_output": "",
+      "keyword_ok": false,
+      "model_route": "math",
+      "model_args": {
+        "query": "12 * 8"
+      },
+      "model_output": "96",
+      "model_ok": true
+    },
+    {
+      "query": "What's 15% of 80?",
+      "expected": "math",
+      "keyword_route": "none",
+      "keyword_output": "",
+      "keyword_ok": false,
+      "model_route": "math",
+      "model_args": {
+        "query": "80 * 0.15"
+      },
+      "model_output": "12.0",
+      "model_ok": true
+    },
+    {
+      "query": "Divide 144 by 12.",
+      "expected": "math",
+      "keyword_route": "none",
+      "keyword_output": "",
+      "keyword_ok": false,
+      "model_route": "math",
+      "model_args": {
+        "query": "144 / 12"
+      },
+      "model_output": "12.0",
+      "model_ok": true
+    },
+    {
+      "query": "What's the weather in London?",
+      "expected": "weather",
+      "keyword_route": "weather",
+      "keyword_output": "The current temperature in London is 48°F.",
+      "keyword_ok": true,
+      "model_route": "weather",
+      "model_args": {
+        "query": "London"
+      },
+      "model_output": "The current temperature in Unknown is 65°F (approx).",
+      "model_ok": false
+    },
+    {
+      "query": "What's the weather in San Francisco (right now)?",
+      "expected": "weather",
+      "keyword_route": "math",
+      "keyword_output": "Error executing tool math: Error parsing expression '      ( )': unexpected indent (<unknown>, line 1)",
+      "keyword_ok": false,
+      "model_route": "weather",
+      "model_args": {
+        "query": "San Francisco"
+      },
+      "model_output": "The current temperature in Unknown is 65°F (approx).",
+      "model_ok": false
+    },
+    {
+      "query": "What's the weather like in Winston-Salem?",
+      "expected": "weather",
+      "keyword_route": "math",
+      "keyword_output": "Error executing tool math: Error parsing expression '     -': unexpected indent (<unknown>, line 1)",
+      "keyword_ok": false,
+      "model_route": "weather",
+      "model_args": {
+        "query": "Winston-Salem"
+      },
+      "model_output": "The current temperature in Unknown is 65°F (approx).",
+      "model_ok": false
+    },
+    {
+      "query": "Will I need a jacket in NYC today? How cold is it there?",
+      "expected": "weather",
+      "keyword_route": "none",
+      "keyword_output": "",
+      "keyword_ok": false,
+      "model_route": "weather",
+      "model_args": {
+        "query": "nyc"
+      },
+      "model_output": "The current temperature in Unknown is 65°F (approx).",
+      "model_ok": false
+    },
+    {
+      "query": "Current temperature in London?",
+      "expected": "weather",
+      "keyword_route": "none",
+      "keyword_output": "",
+      "keyword_ok": false,
+      "model_route": "weather",
+      "model_args": {
+        "query": "London"
+      },
+      "model_output": "The current temperature in Unknown is 65°F (approx).",
+      "model_ok": false
+    },
+    {
+      "query": "Who wrote Hamlet?",
+      "expected": "none",
+      "keyword_route": "none",
+      "keyword_output": "",
+      "keyword_ok": true,
+      "model_route": "none",
+      "model_args": null,
+      "model_output": "",
+      "model_ok": true
+    },
+    {
+      "query": "Tell me a joke about trains.",
+      "expected": "none",
+      "keyword_route": "none",
+      "keyword_output": "",
+      "keyword_ok": true,
+      "model_route": "none",
+      "model_args": null,
+      "model_output": "",
+      "model_ok": true
+    }
+  ]
+}

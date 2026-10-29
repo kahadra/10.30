@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T09:32:33+00:00",
+    "llm": "qwen2.5:7b via Ollama /v1"
+  },
+  "hypothesis": "shared default UA is throttled",
+  "ok_rate": {
+    "default": 0.3333333333333333,
+    "identifying": 1.0
+  },
+  "verdict": "supported",
+  "rows": [
+    {
+      "i": 0,
+      "ua": "default",
+      "status": 429,
+      "retry_after": "3"
+    },
+    {
+      "i": 0,
+      "ua": "identifying",
+      "status": 200,
+      "retry_after": null
+    },
+    {
+      "i": 1,
+      "ua": "default",
+      "status": 200,
+      "retry_after": null
+    },
+    {
+      "i": 1,
+      "ua": "identifying",
+      "status": 200,
+      "retry_after": null
+    },
+    {
+      "i": 2,
+      "ua": "default",
+      "status": 200,
+      "retry_after": null
+    },
+    {
+      "i": 2,
+      "ua": "identifying",
+      "status": 200,
+      "retry_after": null
+    },
+    {
+      "i": 3,
+      "ua": "default",
+      "status": 429,
+      "retry_after": "44"
+    },
+    {
+      "i": 3,
+      "ua": "identifying",
+      "status": 200,
+      "retry_after": null
+    },
+    {
+      "i": 4,
+      "ua": "default",
+      "status": 429,
+      "retry_after": "38"
+    },
+    {
+      "i": 4,
+      "ua": "identifying",
+      "status": 200,
+      "retry_after": null
+    },
+    {
+      "i": 5,
+      "ua": "default",
+      "status": 429,
+      "retry_after": "32"
+    },
+    {
+      "i": 5,
+      "ua": "identifying",
+      "status": 200,
+      "retry_after": null
+    }
+  ],
+  "verdict_first_run_rule": "inconclusive",
+  "decision_rule_note": "first computed with a stricter threshold (default ok-rate <= 0.2) than the stated prediction ('default mostly 429'); recomputed with default ok-rate < 0.5",
+  "counts": {
+    "default_429": 4,
+    "identifying_429": 0,
+    "n_each": 6
+  }
+}

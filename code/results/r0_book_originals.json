@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T09:21:54+00:00",
+    "llm": "qwen2.5:7b via Ollama OpenAI-compatible API",
+    "model_substitution": "model_name=\"gpt-4o\" -> model_name=\"qwen2.5:7b\" (gpt-4o is a paid API model)",
+    "weather_server": "book-repo src/common/mcp/MCP_weather_server.py on :8000 (current env; book env lacks fastapi/uvicorn)",
+    "envs": {
+      "book": "3.11.17",
+      "current": "3.14.4"
+    }
+  },
+  "results": [
+    {
+      "example": "calculator",
+      "book_page": "p.74-75",
+      "repo_file": "src/frameworks/langchain/calculator_tool_use.py",
+      "change": "model name only",
+      "diff_file": "repro/book_runs/book_calculator.diff",
+      "runs": {
+        "book": {
+          "exit": 1,
+          "seconds": 4.1,
+          "stdout_tail": "",
+          "error_last_line": "  field required (type=value_error.missing)",
+          "stderr_tail": "ok_runs\\book_calculator.py\", line 35, in <module>\n    tool_msg = selected_tool.invoke(tool_call)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\langchain_core\\tools.py\", line 260, in invoke\n    return self.run(\n           ^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\langchain_core\\tools.py\", line 417, in run\n    raise e\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\langchain_core\\tools.py\", line 406, in run\n    parsed_input = self._parse_input(tool_input)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\langchain_core\\tools.py\", line 304, in _parse_input\n    result = input_args.parse_obj(tool_input)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\pydantic\\v1\\main.py\", line 549, in parse_obj\n    return cls(**obj)\n           ^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\pydantic\\v1\\main.py\", line 364, in __init__\n    raise validation_error\npydantic.v1.error_wrappers.ValidationError: 2 validation errors for multiplySchema\nx\n  field required (type=value_error.missing)\ny\n  field required (type=value_error.missing)"
+        },
+        "current": {
+          "exit": 0,
+          "seconds": 6.0,
+          "stdout_tail": "multiply\n{'x': 393, 'y': 12.25}\n4814.25\nadd\n{'y': 49, 'x': 11}\n60.0\nThe result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60.",
+          "error_last_line": null,
+          "stderr_tail": ""
+        }
+      }
+    },
+    {
+      "example": "wikipedia",
+      "book_page": "p.76",
+      "repo_file": "src/frameworks/langchain/wikipedia_tool_use.py",
+      "change": "model name only",
+      "diff_file": "repro/book_runs/book_wikipedia.diff",
+      "runs": {
+        "book": {
+          "exit": 1,
+          "seconds": 1.0,
+          "stdout_tail": "",
+          "error_last_line": "ImportError: Could not import wikipedia python package. Please install it with `pip install wikipedia`.",
+          "stderr_tail": ":\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\langchain_community\\utilities\\wikipedia.py\", line 33, in validate_environment\n    import wikipedia\nModuleNotFoundError: No module named 'wikipedia'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\repro\\book_runs\\book_wikipedia.py\", line 6, in <module>\n    api_wrapper = WikipediaAPIWrapper(top_k_results=1, doc_content_chars_max=300)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\pydantic\\v1\\main.py\", line 362, in __init__\n    values, fields_set, validation_error = validate_model(__pydantic_self__.__class__, data)\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\pydantic\\v1\\main.py\", line 1123, in validate_model\n    values = validator(cls_, values)\n             ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\langchain_community\\utilities\\wikipedia.py\", line 38, in validate_environment\n    raise ImportError(\nImportError: Could not import wikipedia python package. Please install it with `pip install wikipedia`."
+        },
+        "current": {
+          "exit": 1,
+          "seconds": 4.2,
+          "stdout_tail": "",
+          "error_last_line": "requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+          "stderr_tail": "ain_core\\tools\\base.py\", line 1098, in run\n    response = context.run(self._run, *tool_args, **tool_kwargs)\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv\\Lib\\site-packages\\langchain_community\\tools\\wikipedia\\tool.py\", line 38, in _run\n    return self.api_wrapper.run(query)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv\\Lib\\site-packages\\langchain_community\\utilities\\wikipedia.py\", line 53, in run\n    page_titles = self.wiki_client.search(\n        query[:WIKIPEDIA_MAX_QUERY_LENGTH], results=self.top_k_results\n    )\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv\\Lib\\site-packages\\wikipedia\\util.py\", line 28, in __call__\n    ret = self._cache[key] = self.fn(*args, **kwargs)\n                             ~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv\\Lib\\site-packages\\wikipedia\\wikipedia.py\", line 103, in search\n    raw_results = _wiki_request(search_params)\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv\\Lib\\site-packages\\wikipedia\\wikipedia.py\", line 742, in _wiki_request\n    return r.json()\n           ~~~~~~^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv\\Lib\\site-packages\\requests\\models.py\", line 1120, in json\n    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)\nrequests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+        }
+      }
+    },
+    {
+      "example": "stock_price",
+      "book_page": "p.77-78",
+      "repo_file": "src/frameworks/langchain/stock_price_tool_use.py",
+      "change": "model name only",
+      "diff_file": "repro/book_runs/book_stock_price.diff",
+      "runs": {
+        "book": {
+          "exit": 1,
+          "seconds": 2.5,
+          "stdout_tail": "",
+          "error_last_line": "  field required (type=value_error.missing)",
+          "stderr_tail": "\\최신 인공지능\\ch4-tool-use\\repro\\book_runs\\book_stock_price.py\", line 30, in <module>\n    tool_msg = get_stock_price.invoke(tool_call)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\langchain_core\\tools.py\", line 260, in invoke\n    return self.run(\n           ^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\langchain_core\\tools.py\", line 417, in run\n    raise e\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\langchain_core\\tools.py\", line 406, in run\n    parsed_input = self._parse_input(tool_input)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\langchain_core\\tools.py\", line 304, in _parse_input\n    result = input_args.parse_obj(tool_input)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\pydantic\\v1\\main.py\", line 549, in parse_obj\n    return cls(**obj)\n           ^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv-book\\Lib\\site-packages\\pydantic\\v1\\main.py\", line 364, in __init__\n    raise validation_error\npydantic.v1.error_wrappers.ValidationError: 1 validation error for get_stock_priceSchema\nticker\n  field required (type=value_error.missing)"
+        },
+        "current": {
+          "exit": 1,
+          "seconds": 3.3,
+          "stdout_tail": "",
+          "error_last_line": "requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.example.com', port=443): Max retries exceeded with url: /stocks/AAPL (Caused by NameResolutionError(\"HTTPSConnection(host='api.example.com', port=443): Failed to resolve 'api.example.com' ([Errno 11001] getaddrinfo failed)\"))",
+          "stderr_tail": ".func(*args, **kwargs)\n           ~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\repro\\book_runs\\book_stock_price.py\", line 12, in get_stock_price\n    response = requests.get(api_url)\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv\\Lib\\site-packages\\requests\\api.py\", line 87, in get\n    return request(\"get\", url, params=params, **kwargs)\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv\\Lib\\site-packages\\requests\\api.py\", line 71, in request\n    return session.request(method=method, url=url, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv\\Lib\\site-packages\\requests\\sessions.py\", line 651, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv\\Lib\\site-packages\\requests\\sessions.py\", line 784, in send\n    r = adapter.send(request, **kwargs)\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\.venv\\Lib\\site-packages\\requests\\adapters.py\", line 729, in send\n    raise ConnectionError(e, request=request)\nrequests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.example.com', port=443): Max retries exceeded with url: /stocks/AAPL (Caused by NameResolutionError(\"HTTPSConnection(host='api.example.com', port=443): Failed to resolve 'api.example.com' ([Errno 11001] getaddrinfo failed)\"))"
+        }
+      }
+    },
+    {
+      "example": "mcp_client",
+      "book_page": "p.82-83",
+      "repo_file": "src/frameworks/langgraph_agents/langgraph_mcp_client.py",
+      "change": "none",
+      "diff_file": "repro/book_runs/book_mcp_client.diff",
+      "runs": {
+        "book": {
+          "exit": 1,
+          "seconds": 0.6,
+          "stdout_tail": "",
+          "error_last_line": "ModuleNotFoundError: No module named 'langchain_mcp_adapters'",
+          "stderr_tail": "Traceback (most recent call last):\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\repro\\book_runs\\book_mcp_client.py\", line 7, in <module>\n    from langchain_mcp_adapters.client import MultiServerMCPClient\nModuleNotFoundError: No module named 'langchain_mcp_adapters'"
+        },
+        "current": {
+          "exit": 1,
+          "seconds": 0.1,
+          "stdout_tail": "",
+          "error_last_line": "ModuleNotFoundError: No module named 'langchain'",
+          "stderr_tail": "Traceback (most recent call last):\n  File \"C:\\Users\\GC\\OneDrive\\graduate school\\3rd\\최신 인공지능\\ch4-tool-use\\repro\\book_runs\\book_mcp_client.py\", line 5, in <module>\n    from langchain.schema import HumanMessage\nModuleNotFoundError: No module named 'langchain'"
+        }
+      }
+    }
+  ]
+}

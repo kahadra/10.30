@@ -1,0 +1,51 @@
+{"case": "B1 invalid args", "model": "scripted", "t": 1793003435.483, "event": "invalid_args", "tool": "multiply", "args": {"x": "three hundred ninety-three", "y": 12.25}, "errors": ["x: Input should be a valid number, unable to parse string as a number"]}
+{"case": "B1 invalid args", "model": "scripted", "t": 1793003435.505, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B1 invalid args", "model": "scripted", "t": 1793003435.505, "event": "ok", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 1, "result": 4814.25}
+{"case": "B2 unknown tool", "model": "scripted", "t": 1793003435.505, "event": "unknown_tool", "tool": "multiplication", "args": {"a": 393, "b": 12.25}}
+{"case": "B2 unknown tool", "model": "scripted", "t": 1793003435.506, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B2 unknown tool", "model": "scripted", "t": 1793003435.506, "event": "ok", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 1, "result": 4814.25}
+{"case": "B3 transient x2", "model": "scripted", "t": 1793003435.506, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 1, "error": "upstream timeout (injected)", "backoff_s": 0.05}
+{"case": "B3 transient x2", "model": "scripted", "t": 1793003435.557, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 2, "error": "upstream timeout (injected)", "backoff_s": 0.1}
+{"case": "B3 transient x2", "model": "scripted", "t": 1793003435.658, "event": "ok", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 3, "result": 4814.25}
+{"case": "B3 transient x2", "model": "scripted", "t": 1793003435.658, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B4 persistent -> fallback", "model": "scripted", "t": 1793003435.658, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 1, "error": "upstream timeout (injected)", "backoff_s": 0.05}
+{"case": "B4 persistent -> fallback", "model": "scripted", "t": 1793003435.709, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 2, "error": "upstream timeout (injected)", "backoff_s": 0.1}
+{"case": "B4 persistent -> fallback", "model": "scripted", "t": 1793003435.809, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 3, "error": "upstream timeout (injected)", "backoff_s": 0.2}
+{"case": "B4 persistent -> fallback", "model": "scripted", "t": 1793003436.009, "event": "fallback", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "result": 4814.25}
+{"case": "B4 persistent -> fallback", "model": "scripted", "t": 1793003436.01, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B6 ungrounded final", "model": "scripted", "t": 1793003436.011, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 1, "error": "upstream timeout (injected)", "backoff_s": 0.05}
+{"case": "B6 ungrounded final", "model": "scripted", "t": 1793003436.061, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 2, "error": "upstream timeout (injected)", "backoff_s": 0.1}
+{"case": "B6 ungrounded final", "model": "scripted", "t": 1793003436.162, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 3, "error": "upstream timeout (injected)", "backoff_s": 0.2}
+{"case": "B6 ungrounded final", "model": "scripted", "t": 1793003436.362, "event": "safe_default", "tool": "multiply", "args": {"x": 393, "y": 12.25}}
+{"case": "B6 ungrounded final", "model": "scripted", "t": 1793003436.363, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B6 ungrounded final", "model": "scripted", "t": 1793003436.363, "event": "ungrounded_final", "tool": null, "args": null, "unresolved_tools": ["multiply"]}
+{"case": "B6 ungrounded final", "model": "scripted", "t": 1793003436.363, "event": "replaced_final", "tool": null, "args": null, "unresolved_tools": ["multiply"], "unsupported_numbers": [4800.0]}
+{"case": "B5 skipped tool", "model": "scripted", "t": 1793003436.363, "event": "skipped_tool", "tool": null, "args": null}
+{"case": "B5 skipped tool", "model": "scripted", "t": 1793003436.363, "event": "ok", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 1, "result": 4814.25}
+{"case": "B5 skipped tool", "model": "scripted", "t": 1793003436.364, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B1 invalid args (corrupted)", "model": "ollama:qwen2.5:7b", "t": 1793003540.309, "event": "invalid_args", "tool": "multiply", "args": {"x": "three hundred ninety-three", "y": 12.25}, "errors": ["x: Input should be a valid number, unable to parse string as a number"]}
+{"case": "B1 invalid args (corrupted)", "model": "ollama:qwen2.5:7b", "t": 1793003540.31, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B1 invalid args (corrupted)", "model": "ollama:qwen2.5:7b", "t": 1793003541.392, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B1 invalid args (corrupted)", "model": "ollama:qwen2.5:7b", "t": 1793003543.305, "event": "ungrounded_final", "tool": null, "args": null, "unresolved_tools": ["multiply"], "unsupported_numbers": [4845.75]}
+{"case": "B1 invalid args (corrupted)", "model": "ollama:qwen2.5:7b", "t": 1793003544.517, "event": "ok", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 1, "result": 4814.25}
+{"case": "B3 transient x2", "model": "ollama:qwen2.5:7b", "t": 1793003548.627, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 1, "error": "upstream timeout (injected)", "backoff_s": 0.05}
+{"case": "B3 transient x2", "model": "ollama:qwen2.5:7b", "t": 1793003548.677, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 2, "error": "upstream timeout (injected)", "backoff_s": 0.1}
+{"case": "B3 transient x2", "model": "ollama:qwen2.5:7b", "t": 1793003548.778, "event": "ok", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 3, "result": 4814.25}
+{"case": "B3 transient x2", "model": "ollama:qwen2.5:7b", "t": 1793003548.779, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B4 persistent -> fallback", "model": "ollama:qwen2.5:7b", "t": 1793003552.782, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 1, "error": "upstream timeout (injected)", "backoff_s": 0.05}
+{"case": "B4 persistent -> fallback", "model": "ollama:qwen2.5:7b", "t": 1793003552.833, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 2, "error": "upstream timeout (injected)", "backoff_s": 0.1}
+{"case": "B4 persistent -> fallback", "model": "ollama:qwen2.5:7b", "t": 1793003552.933, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 3, "error": "upstream timeout (injected)", "backoff_s": 0.2}
+{"case": "B4 persistent -> fallback", "model": "ollama:qwen2.5:7b", "t": 1793003553.134, "event": "fallback", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "result": 4814.25}
+{"case": "B4 persistent -> fallback", "model": "ollama:qwen2.5:7b", "t": 1793003553.134, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003557.183, "event": "retry", "tool": "multiply", "args": {"y": 12.25, "x": 393}, "attempt": 1, "error": "upstream timeout (injected)", "backoff_s": 0.05}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003557.234, "event": "retry", "tool": "multiply", "args": {"y": 12.25, "x": 393}, "attempt": 2, "error": "upstream timeout (injected)", "backoff_s": 0.1}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003557.334, "event": "retry", "tool": "multiply", "args": {"y": 12.25, "x": 393}, "attempt": 3, "error": "upstream timeout (injected)", "backoff_s": 0.2}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003557.534, "event": "safe_default", "tool": "multiply", "args": {"y": 12.25, "x": 393}}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003557.535, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003559.218, "event": "ungrounded_final", "tool": null, "args": null, "unresolved_tools": ["multiply"]}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003561.185, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 1, "error": "upstream timeout (injected)", "backoff_s": 0.05}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003561.235, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 2, "error": "upstream timeout (injected)", "backoff_s": 0.1}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003561.336, "event": "retry", "tool": "multiply", "args": {"x": 393, "y": 12.25}, "attempt": 3, "error": "upstream timeout (injected)", "backoff_s": 0.2}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003561.536, "event": "safe_default", "tool": "multiply", "args": {"x": 393, "y": 12.25}}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003561.537, "event": "ok", "tool": "add", "args": {"x": 11, "y": 49}, "attempt": 1, "result": 60.0}
+{"case": "B4' persistent, no fallback", "model": "ollama:qwen2.5:7b", "t": 1793003566.207, "event": "replaced_final", "tool": null, "args": null, "unresolved_tools": ["multiply"], "unsupported_numbers": [4835.25]}

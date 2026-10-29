@@ -1,0 +1,11 @@
+--- book-repo/src/frameworks/langchain/calculator_tool_use.py
++++ repro/book_runs/book_calculator.py
+@@ -21,7 +21,7 @@
+ tools = [multiply, exponentiate, add]
+ 
+ # Initialize the LLM with GPT-4o and bind the tools
+-llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
++llm = ChatOpenAI(model_name="qwen2.5:7b", temperature=0)
+ llm_with_tools = llm.bind_tools(tools)
+ 
+ query = "What is 393 * 12.25? Also, what is 11 + 49?"

@@ -1,0 +1,58 @@
+--- book-repo/src/frameworks/langgraph_agents/langgraph_mcp_client.py
++++ repro/book_min/book_mcp_client.py
+@@ -1,9 +1,10 @@
+ import asyncio
+ import json
+ import os
++import sys
+ 
+-from langchain.schema import HumanMessage
+-from langchain.tools import Tool
++from langchain_core.messages import HumanMessage
++from langchain_core.tools import BaseTool as Tool
+ from langchain_mcp_adapters.client import MultiServerMCPClient
+ 
+ from langgraph.graph import StateGraph, END
+@@ -16,8 +17,8 @@
+ mcp_client = MultiServerMCPClient(
+     {
+         "math": {
+-            "command": "python3",
+-            "args": ["src/common/mcp/MCP_weather_server.py"],
++            "command": sys.executable,
++            "args": ["../../repro/book_min/book_mcp_math_server.py"],
+             "transport": "stdio",
+         },
+         "weather": {
+@@ -57,7 +58,7 @@
+     tool_obj = next(t for t in MCP_TOOLS if t.name == tool_name)
+ 
+     user_input = messages[-1].content
+-    mcp_result: str = await tool_obj.arun(user_input)
++    mcp_result: str = await tool_obj.arun({"query": user_input})
+ 
+     return {
+         "messages": [
+@@ -81,7 +82,7 @@
+     }
+     result = await GRAPH.ainvoke(initial_state)
+     assistant_msg = result["messages"][-1]
+-    print("Math answer:", assistant_msg.content)
++    print("Math answer:", assistant_msg["content"])
+ 
+ 
+ async def run_weather_query():
+@@ -92,10 +93,9 @@
+     }
+     result = await GRAPH.ainvoke(initial_state)
+     assistant_msg = result["messages"][-1]
+-    print("Weather answer:", assistant_msg.content)
++    print("Weather answer:", assistant_msg["content"])
+ 
+ 
+ if __name__ == "__main__":
+-    loop = asyncio.get_event_loop()
+-    loop.run_until_complete(run_math_query())
+-    loop.run_until_complete(run_weather_query())
++    asyncio.run(run_math_query())
++    asyncio.run(run_weather_query())

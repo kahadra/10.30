@@ -1,0 +1,265 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T08:16:38+00:00",
+    "python": "3.14.4",
+    "model": "ollama:qwen2.5:7b",
+    "n_queries": 12
+  },
+  "part_a": {
+    "book_router": {
+      "accuracy": 0.417,
+      "errors": [
+        {
+          "query": "What is twelve times eight?",
+          "gold": "math",
+          "pred": "none"
+        },
+        {
+          "query": "What's 15% of 80?",
+          "gold": "math",
+          "pred": "none"
+        },
+        {
+          "query": "Divide 144 by 12.",
+          "gold": "math",
+          "pred": "none"
+        },
+        {
+          "query": "What's the weather in San Francisco (right now)?",
+          "gold": "weather",
+          "pred": "math"
+        },
+        {
+          "query": "What's the weather like in Winston-Salem?",
+          "gold": "weather",
+          "pred": "math"
+        },
+        {
+          "query": "Will I need a jacket in NYC today? How cold is it there?",
+          "gold": "weather",
+          "pred": "none"
+        },
+        {
+          "query": "Current temperature in London?",
+          "gold": "weather",
+          "pred": "none"
+        }
+      ]
+    },
+    "book_loop_as_written": {
+      "query": "What is (3 + 5) * 12?",
+      "routed_to": "math",
+      "server_tool_names": [
+        "evaluate_arithmetic",
+        "get_current_weather"
+      ],
+      "failure": "StopIteration: no tool named 'math' -- server/connection key != tool name",
+      "patched_lookup_raw_text": "ValueError: String tool inputs are not allowed when using tools with JSON schema args_schema."
+    }
+  },
+  "part_b": {
+    "discovery_s": 0.85,
+    "tools": [
+      {
+        "name": "evaluate_arithmetic",
+        "description": "Evaluate an arithmetic expression using only + - * / ** and parentheses, e.g. \"(3 + 5) * 12\".",
+        "args": {
+          "expression": {
+            "title": "Expression",
+            "type": "string"
+          }
+        }
+      },
+      {
+        "name": "get_current_weather",
+        "description": "Get the current temperature for a city (dummy data). Not for forecasts.",
+        "args": {
+          "city": {
+            "title": "City",
+            "type": "string"
+          }
+        }
+      }
+    ],
+    "calls": {
+      "evaluate_arithmetic": "[{'type': 'text', 'text': '96', 'id': 'lc_4701a3fa-bfd7-41ba-9ad1-231b64bdb0d8'}]",
+      "get_current_weather": "[{'type': 'text', 'text': 'The current temperature in London is 48°F.', 'id': 'lc_9c69103d-88ea-47c2-87ed-92d400af01f7'}]"
+    }
+  },
+  "part_c": {
+    "llm_router": {
+      "accuracy": 1.0,
+      "errors": []
+    },
+    "first_turn": [
+      {
+        "query": "What is (3 + 5) * 12?",
+        "gold": "math",
+        "pred": "math",
+        "calls": [
+          {
+            "name": "evaluate_arithmetic",
+            "args": {
+              "expression": "(3 + 5) * 12"
+            }
+          }
+        ]
+      },
+      {
+        "query": "Compute 2 ** 10 - 24.",
+        "gold": "math",
+        "pred": "math",
+        "calls": [
+          {
+            "name": "evaluate_arithmetic",
+            "args": {
+              "expression": "2 ** 10 - 24"
+            }
+          }
+        ]
+      },
+      {
+        "query": "What is twelve times eight?",
+        "gold": "math",
+        "pred": "math",
+        "calls": [
+          {
+            "name": "evaluate_arithmetic",
+            "args": {
+              "expression": "12 * 8"
+            }
+          }
+        ]
+      },
+      {
+        "query": "What's 15% of 80?",
+        "gold": "math",
+        "pred": "math",
+        "calls": [
+          {
+            "name": "evaluate_arithmetic",
+            "args": {
+              "expression": "80 * 0.15"
+            }
+          }
+        ]
+      },
+      {
+        "query": "Divide 144 by 12.",
+        "gold": "math",
+        "pred": "math",
+        "calls": [
+          {
+            "name": "evaluate_arithmetic",
+            "args": {
+              "expression": "144 / 12"
+            }
+          }
+        ]
+      },
+      {
+        "query": "What's the weather in London?",
+        "gold": "weather",
+        "pred": "weather",
+        "calls": [
+          {
+            "name": "get_current_weather",
+            "args": {
+              "city": "London"
+            }
+          }
+        ]
+      },
+      {
+        "query": "What's the weather in San Francisco (right now)?",
+        "gold": "weather",
+        "pred": "weather",
+        "calls": [
+          {
+            "name": "get_current_weather",
+            "args": {
+              "city": "San Francisco"
+            }
+          }
+        ]
+      },
+      {
+        "query": "What's the weather like in Winston-Salem?",
+        "gold": "weather",
+        "pred": "weather",
+        "calls": [
+          {
+            "name": "get_current_weather",
+            "args": {
+              "city": "Winston-Salem"
+            }
+          }
+        ]
+      },
+      {
+        "query": "Will I need a jacket in NYC today? How cold is it there?",
+        "gold": "weather",
+        "pred": "weather",
+        "calls": [
+          {
+            "name": "get_current_weather",
+            "args": {
+              "city": "New York City"
+            }
+          }
+        ]
+      },
+      {
+        "query": "Current temperature in London?",
+        "gold": "weather",
+        "pred": "weather",
+        "calls": [
+          {
+            "name": "get_current_weather",
+            "args": {
+              "city": "London"
+            }
+          }
+        ]
+      },
+      {
+        "query": "Who wrote Hamlet?",
+        "gold": "none",
+        "pred": "none",
+        "calls": []
+      },
+      {
+        "query": "Tell me a joke about trains.",
+        "gold": "none",
+        "pred": "none",
+        "calls": []
+      }
+    ],
+    "full_loops": [
+      {
+        "query": "What is twelve times eight?",
+        "calls": [
+          {
+            "name": "evaluate_arithmetic",
+            "args": {
+              "expression": "12 * 8"
+            }
+          }
+        ],
+        "final": "Twelve times eight equals 96."
+      },
+      {
+        "query": "What's the weather in San Francisco (right now)?",
+        "calls": [
+          {
+            "name": "get_current_weather",
+            "args": {
+              "city": "San Francisco"
+            }
+          }
+        ],
+        "final": "The current temperature in San Francisco is 62°F."
+      }
+    ]
+  }
+}

@@ -1,0 +1,3298 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T08:22:59+00:00",
+    "model": "ollama:qwen2.5:7b",
+    "temperature": 0,
+    "repeats": 1,
+    "n_queries": 24
+  },
+  "rows": [
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "What is 1287.5 plus 349?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 1287.5,
+            "b": 349
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 488,
+      "latency_s": 1.979
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Add 73 and 19 for me.",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 73,
+            "b": 19
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 484,
+      "latency_s": 1.167
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "I spent 45.2 dollars and then 18.8 more. Total spent?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 45.2,
+            "b": 18.8
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 493,
+      "latency_s": 1.366
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Sum of 0.125 and 3.5?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 0.125,
+            "b": 3.5
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 487,
+      "latency_s": 1.356
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Convert 98.6 Fahrenheit to Celsius.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "fahrenheit",
+            "to_unit": "celsius",
+            "value": 98.6
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 483,
+      "latency_s": 1.595
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "How many kelvin is 25 degrees celsius?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "celsius",
+            "to_unit": "kelvin",
+            "value": 25
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 485,
+      "latency_s": 1.559
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "The oven says 350 F. What is that in C?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "value": 350,
+            "from_unit": "fahrenheit",
+            "to_unit": "celsius"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 488,
+      "latency_s": 1.583
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Turn -40 celsius into fahrenheit.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "value": -40,
+            "from_unit": "celsius",
+            "to_unit": "fahrenheit"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 483,
+      "latency_s": 1.518
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "What's the weather in Seoul right now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Seoul"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 482,
+      "latency_s": 0.932
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Is it raining in London at the moment?",
+      "expected": "get_current_weather",
+      "calls": [],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 0,
+      "args_ok": false,
+      "input_tokens": 482,
+      "latency_s": 1.908
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Current temperature in Busan?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Busan"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 479,
+      "latency_s": 0.925
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "How is the sky over Tokyo now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Tokyo"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 481,
+      "latency_s": 0.925
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "What time is it in New York?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "New York"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 481,
+      "latency_s": 0.938
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Tell me the current local time in Paris.",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Paris"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 482,
+      "latency_s": 0.901
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Is it already evening in Sydney? What's the time there?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Sydney"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 486,
+      "latency_s": 0.967
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Clock time in Berlin right now?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Berlin"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 480,
+      "latency_s": 0.894
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Convert 100 USD to KRW.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 100,
+            "from_currency": "USD",
+            "to_currency": "KRW"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 483,
+      "latency_s": 1.52
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "How much is 2500 yen in euros?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 2500,
+            "from_currency": "JPY",
+            "to_currency": "EUR"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 485,
+      "latency_s": 1.601
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "I have 50000 won, how many US dollars is that?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 50000,
+            "from_currency": "KRW",
+            "to_currency": "USD"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 490,
+      "latency_s": 1.624
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Change 75 GBP into USD.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 75,
+            "from_currency": "GBP",
+            "to_currency": "USD"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 481,
+      "latency_s": 1.426
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Email kim@lab.ac.kr with subject 'Seminar' and say 'Slides are ready.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "body": "Slides are ready.",
+            "to": "kim@lab.ac.kr",
+            "subject": "Seminar"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 492,
+      "latency_s": 1.658
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Send an email to prof@uni.edu, subject Meeting, body: Can we meet Friday?",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "prof@uni.edu",
+            "subject": "Meeting",
+            "body": "Can we meet Friday?"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 492,
+      "latency_s": 1.623
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Please email lee@corp.com titled 'Invoice' saying 'Invoice attached.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "lee@corp.com",
+            "subject": "Invoice",
+            "body": "Invoice attached."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 488,
+      "latency_s": 1.538
+    },
+    {
+      "n": 6,
+      "quality": "good",
+      "rep": 0,
+      "query": "Shoot a mail to team@lab.org, subject 'Lunch', text 'Lunch at noon.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "team@lab.org",
+            "subject": "Lunch",
+            "body": "Lunch at noon."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 494,
+      "latency_s": 1.666
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "What is 1287.5 plus 349?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 1287.5,
+            "b": 349
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 417,
+      "latency_s": 1.687
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Add 73 and 19 for me.",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "b": 19,
+            "a": 73
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 413,
+      "latency_s": 1.172
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "I spent 45.2 dollars and then 18.8 more. Total spent?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 45.2,
+            "from_currency": "dollar",
+            "to_currency": "dollar"
+          }
+        },
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 18.8,
+            "from_currency": "dollar",
+            "to_currency": "dollar"
+          }
+        },
+        {
+          "tool": "convert_currency",
+          "args": {
+            "to_currency": "dollar",
+            "amount": 64,
+            "from_currency": "dollar"
+          }
+        }
+      ],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 3,
+      "args_ok": false,
+      "input_tokens": 422,
+      "latency_s": 4.73
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Sum of 0.125 and 3.5?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "b": 3.5,
+            "a": 0.125
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 416,
+      "latency_s": 1.351
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Convert 98.6 Fahrenheit to Celsius.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "fahrenheit",
+            "to_unit": "celsius",
+            "value": 98.6
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 412,
+      "latency_s": 1.592
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "How many kelvin is 25 degrees celsius?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "celsius",
+            "to_unit": "kelvin",
+            "value": 25
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 414,
+      "latency_s": 1.555
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "The oven says 350 F. What is that in C?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "fahrenheit",
+            "to_unit": "celsius",
+            "value": 350
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 417,
+      "latency_s": 1.577
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Turn -40 celsius into fahrenheit.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "value": -40,
+            "from_unit": "celsius",
+            "to_unit": "fahrenheit"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 412,
+      "latency_s": 1.503
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "What's the weather in Seoul right now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Seoul"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 411,
+      "latency_s": 2.854
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Is it raining in London at the moment?",
+      "expected": "get_current_weather",
+      "calls": [],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 0,
+      "args_ok": false,
+      "input_tokens": 411,
+      "latency_s": 5.221
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Current temperature in Busan?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "celsius",
+            "to_unit": "celsius",
+            "value": 22
+          }
+        }
+      ],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 408,
+      "latency_s": 1.489
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "How is the sky over Tokyo now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Tokyo"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 410,
+      "latency_s": 0.884
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "What time is it in New York?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "New York"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 410,
+      "latency_s": 0.886
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Tell me the current local time in Paris.",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Paris"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 411,
+      "latency_s": 0.847
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Is it already evening in Sydney? What's the time there?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Sydney"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 415,
+      "latency_s": 0.923
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Clock time in Berlin right now?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Berlin"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 409,
+      "latency_s": 0.849
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Convert 100 USD to KRW.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 100,
+            "from_currency": "USD",
+            "to_currency": "KRW"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 412,
+      "latency_s": 1.499
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "How much is 2500 yen in euros?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 2500,
+            "from_currency": "JPY",
+            "to_currency": "EUR"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 414,
+      "latency_s": 1.578
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "I have 50000 won, how many US dollars is that?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 50000,
+            "from_currency": "won",
+            "to_currency": "usd"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 419,
+      "latency_s": 1.611
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Change 75 GBP into USD.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 75,
+            "from_currency": "GBP",
+            "to_currency": "USD"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 410,
+      "latency_s": 1.417
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Email kim@lab.ac.kr with subject 'Seminar' and say 'Slides are ready.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "kim@lab.ac.kr",
+            "subject": "Seminar",
+            "body": "Slides are ready."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 421,
+      "latency_s": 1.658
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Send an email to prof@uni.edu, subject Meeting, body: Can we meet Friday?",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "subject": "Meeting",
+            "body": "Can we meet Friday?",
+            "to": "prof@uni.edu"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 421,
+      "latency_s": 1.619
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Please email lee@corp.com titled 'Invoice' saying 'Invoice attached.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "lee@corp.com",
+            "subject": "Invoice",
+            "body": "Invoice attached."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 417,
+      "latency_s": 1.539
+    },
+    {
+      "n": 6,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Shoot a mail to team@lab.org, subject 'Lunch', text 'Lunch at noon.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "team@lab.org",
+            "subject": "Lunch",
+            "body": "Lunch at noon."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 423,
+      "latency_s": 1.689
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "What is 1287.5 plus 349?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 1287.5,
+            "b": 349
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 959,
+      "latency_s": 1.956
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Add 73 and 19 for me.",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 73,
+            "b": 19
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 955,
+      "latency_s": 1.194
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "I spent 45.2 dollars and then 18.8 more. Total spent?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "b": 18.8,
+            "a": 45.2
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 964,
+      "latency_s": 1.388
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Sum of 0.125 and 3.5?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 0.125,
+            "b": 3.5
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 958,
+      "latency_s": 1.366
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Convert 98.6 Fahrenheit to Celsius.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "fahrenheit",
+            "to_unit": "celsius",
+            "value": 98.6
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 954,
+      "latency_s": 1.617
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "How many kelvin is 25 degrees celsius?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "value": 25,
+            "from_unit": "celsius",
+            "to_unit": "kelvin"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 956,
+      "latency_s": 1.571
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "The oven says 350 F. What is that in C?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "fahrenheit",
+            "to_unit": "celsius",
+            "value": 350
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 959,
+      "latency_s": 1.61
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Turn -40 celsius into fahrenheit.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "celsius",
+            "to_unit": "fahrenheit",
+            "value": -40
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 954,
+      "latency_s": 1.553
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "What's the weather in Seoul right now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Seoul"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 953,
+      "latency_s": 0.944
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Is it raining in London at the moment?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "London"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 953,
+      "latency_s": 0.91
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Current temperature in Busan?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Busan"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 950,
+      "latency_s": 0.937
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "How is the sky over Tokyo now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Tokyo"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 952,
+      "latency_s": 0.943
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "What time is it in New York?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "New York"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 952,
+      "latency_s": 0.941
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Tell me the current local time in Paris.",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Paris"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 953,
+      "latency_s": 0.911
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Is it already evening in Sydney? What's the time there?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Sydney"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 957,
+      "latency_s": 0.978
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Clock time in Berlin right now?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Berlin"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 951,
+      "latency_s": 0.903
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Convert 100 USD to KRW.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "from_currency": "USD",
+            "to_currency": "KRW",
+            "amount": 100
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 954,
+      "latency_s": 1.541
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "How much is 2500 yen in euros?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 2500,
+            "from_currency": "JPY",
+            "to_currency": "EUR"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 956,
+      "latency_s": 1.609
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "I have 50000 won, how many US dollars is that?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "to_currency": "USD",
+            "amount": 50000,
+            "from_currency": "KRW"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 961,
+      "latency_s": 1.652
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Change 75 GBP into USD.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "from_currency": "GBP",
+            "to_currency": "USD",
+            "amount": 75
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 952,
+      "latency_s": 1.446
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Email kim@lab.ac.kr with subject 'Seminar' and say 'Slides are ready.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "kim@lab.ac.kr",
+            "subject": "Seminar",
+            "body": "Slides are ready."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 963,
+      "latency_s": 1.677
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Send an email to prof@uni.edu, subject Meeting, body: Can we meet Friday?",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "body": "Can we meet Friday?",
+            "to": "prof@uni.edu",
+            "subject": "Meeting"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 963,
+      "latency_s": 1.657
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Please email lee@corp.com titled 'Invoice' saying 'Invoice attached.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "lee@corp.com",
+            "subject": "Invoice",
+            "body": "Invoice attached."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 959,
+      "latency_s": 1.564
+    },
+    {
+      "n": 15,
+      "quality": "good",
+      "rep": 0,
+      "query": "Shoot a mail to team@lab.org, subject 'Lunch', text 'Lunch at noon.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "team@lab.org",
+            "subject": "Lunch",
+            "body": "Lunch at noon."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 965,
+      "latency_s": 1.688
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "What is 1287.5 plus 349?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 1287.5,
+            "b": 349
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 800,
+      "latency_s": 1.812
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Add 73 and 19 for me.",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 73,
+            "b": 19
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 796,
+      "latency_s": 1.171
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "I spent 45.2 dollars and then 18.8 more. Total spent?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "to_currency": "dollar",
+            "amount": 45.2,
+            "from_currency": "dollar"
+          }
+        },
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 18.8,
+            "from_currency": "dollar",
+            "to_currency": "dollar"
+          }
+        },
+        {
+          "tool": "multiply_numbers",
+          "args": {
+            "b": 18.8,
+            "a": 45.2
+          }
+        }
+      ],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 3,
+      "args_ok": false,
+      "input_tokens": 805,
+      "latency_s": 4.698
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Sum of 0.125 and 3.5?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 0.125,
+            "b": 3.5
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 799,
+      "latency_s": 1.367
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Convert 98.6 Fahrenheit to Celsius.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "fahrenheit",
+            "to_unit": "celsius",
+            "value": 98.6
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 795,
+      "latency_s": 1.633
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "How many kelvin is 25 degrees celsius?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "celsius",
+            "to_unit": "kelvin",
+            "value": 25
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 797,
+      "latency_s": 1.593
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "The oven says 350 F. What is that in C?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "fahrenheit",
+            "to_unit": "celsius",
+            "value": 350
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 800,
+      "latency_s": 1.63
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Turn -40 celsius into fahrenheit.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "celsius",
+            "to_unit": "fahrenheit",
+            "value": -40
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 795,
+      "latency_s": 1.565
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "What's the weather in Seoul right now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Seoul"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 794,
+      "latency_s": 0.918
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Is it raining in London at the moment?",
+      "expected": "get_current_weather",
+      "calls": [],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 0,
+      "args_ok": false,
+      "input_tokens": 794,
+      "latency_s": 2.915
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Current temperature in Busan?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "to_unit": "fahrenheit",
+            "value": 22,
+            "from_unit": "celsius"
+          }
+        }
+      ],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 791,
+      "latency_s": 1.543
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "How is the sky over Tokyo now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_weather_forecast",
+          "args": {
+            "city": "Tokyo",
+            "days": 0
+          }
+        }
+      ],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 793,
+      "latency_s": 1.146
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "What time is it in New York?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "New York"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 793,
+      "latency_s": 0.908
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Tell me the current local time in Paris.",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Paris"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 794,
+      "latency_s": 0.861
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Is it already evening in Sydney? What's the time there?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Sydney"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 798,
+      "latency_s": 0.939
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Clock time in Berlin right now?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Berlin"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 792,
+      "latency_s": 0.858
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Convert 100 USD to KRW.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "to_currency": "KRW",
+            "amount": 100,
+            "from_currency": "USD"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 795,
+      "latency_s": 1.536
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "How much is 2500 yen in euros?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 2500,
+            "from_currency": "JPY",
+            "to_currency": "EUR"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 797,
+      "latency_s": 1.609
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "I have 50000 won, how many US dollars is that?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "from_currency": "won",
+            "to_currency": "usd",
+            "amount": 50000
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 802,
+      "latency_s": 1.633
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Change 75 GBP into USD.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 75,
+            "from_currency": "GBP",
+            "to_currency": "USD"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 793,
+      "latency_s": 1.46
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Email kim@lab.ac.kr with subject 'Seminar' and say 'Slides are ready.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "kim@lab.ac.kr",
+            "subject": "Seminar",
+            "body": "Slides are ready."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 804,
+      "latency_s": 1.692
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Send an email to prof@uni.edu, subject Meeting, body: Can we meet Friday?",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "subject": "Meeting",
+            "body": "Can we meet Friday?",
+            "to": "prof@uni.edu"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 804,
+      "latency_s": 1.645
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Please email lee@corp.com titled 'Invoice' saying 'Invoice attached.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "body": "Invoice attached.",
+            "to": "lee@corp.com",
+            "subject": "Invoice"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 800,
+      "latency_s": 1.58
+    },
+    {
+      "n": 15,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Shoot a mail to team@lab.org, subject 'Lunch', text 'Lunch at noon.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "subject": "Lunch",
+            "body": "Lunch at noon.",
+            "to": "team@lab.org"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 806,
+      "latency_s": 1.703
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "What is 1287.5 plus 349?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 1287.5,
+            "b": 349
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1692,
+      "latency_s": 2.178
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Add 73 and 19 for me.",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 73,
+            "b": 19
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1688,
+      "latency_s": 1.237
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "I spent 45.2 dollars and then 18.8 more. Total spent?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 45.2,
+            "b": 18.8
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1697,
+      "latency_s": 1.428
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Sum of 0.125 and 3.5?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "add_numbers",
+          "args": {
+            "a": 0.125,
+            "b": 3.5
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1691,
+      "latency_s": 1.431
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Convert 98.6 Fahrenheit to Celsius.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "to_unit": "celsius",
+            "value": 98.6,
+            "from_unit": "fahrenheit"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1687,
+      "latency_s": 1.667
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "How many kelvin is 25 degrees celsius?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "celsius",
+            "to_unit": "kelvin",
+            "value": 25
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1689,
+      "latency_s": 1.616
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "The oven says 350 F. What is that in C?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "fahrenheit",
+            "to_unit": "celsius",
+            "value": 350
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1692,
+      "latency_s": 1.713
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Turn -40 celsius into fahrenheit.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "celsius",
+            "to_unit": "fahrenheit",
+            "value": -40
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1687,
+      "latency_s": 1.621
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "What's the weather in Seoul right now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Seoul"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1686,
+      "latency_s": 1.017
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Is it raining in London at the moment?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "London"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1686,
+      "latency_s": 2.471
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Current temperature in Busan?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Busan"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1683,
+      "latency_s": 0.987
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "How is the sky over Tokyo now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Tokyo"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1685,
+      "latency_s": 1.0
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "What time is it in New York?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "New York"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1685,
+      "latency_s": 0.986
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Tell me the current local time in Paris.",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Paris"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1686,
+      "latency_s": 0.955
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Is it already evening in Sydney? What's the time there?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Sydney"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1690,
+      "latency_s": 1.032
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Clock time in Berlin right now?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Berlin"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1684,
+      "latency_s": 0.955
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Convert 100 USD to KRW.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 100,
+            "from_currency": "USD",
+            "to_currency": "KRW"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1687,
+      "latency_s": 1.627
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "How much is 2500 yen in euros?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 2500,
+            "from_currency": "JPY",
+            "to_currency": "EUR"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1689,
+      "latency_s": 1.671
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "I have 50000 won, how many US dollars is that?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 50000,
+            "from_currency": "KRW",
+            "to_currency": "USD"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1694,
+      "latency_s": 1.724
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Change 75 GBP into USD.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 75,
+            "from_currency": "GBP",
+            "to_currency": "USD"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1685,
+      "latency_s": 1.538
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Email kim@lab.ac.kr with subject 'Seminar' and say 'Slides are ready.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "kim@lab.ac.kr",
+            "subject": "Seminar",
+            "body": "Slides are ready."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1696,
+      "latency_s": 1.758
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Send an email to prof@uni.edu, subject Meeting, body: Can we meet Friday?",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "prof@uni.edu",
+            "subject": "Meeting",
+            "body": "Can we meet Friday?"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1696,
+      "latency_s": 1.731
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Please email lee@corp.com titled 'Invoice' saying 'Invoice attached.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "lee@corp.com",
+            "subject": "Invoice",
+            "body": "Invoice attached."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1692,
+      "latency_s": 1.641
+    },
+    {
+      "n": 30,
+      "quality": "good",
+      "rep": 0,
+      "query": "Shoot a mail to team@lab.org, subject 'Lunch', text 'Lunch at noon.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "team@lab.org",
+            "subject": "Lunch",
+            "body": "Lunch at noon."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1698,
+      "latency_s": 1.759
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "What is 1287.5 plus 349?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "compute_average",
+          "args": {
+            "numbers": [
+              1287.5,
+              349
+            ]
+          }
+        }
+      ],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 1429,
+      "latency_s": 2.027
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Add 73 and 19 for me.",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "compute_average",
+          "args": {
+            "numbers": [
+              73,
+              19
+            ]
+          }
+        }
+      ],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 1425,
+      "latency_s": 1.159
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "I spent 45.2 dollars and then 18.8 more. Total spent?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "compute_average",
+          "args": {
+            "numbers": [
+              45.2,
+              18.8
+            ]
+          }
+        }
+      ],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 1434,
+      "latency_s": 1.346
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Sum of 0.125 and 3.5?",
+      "expected": "add_numbers",
+      "calls": [
+        {
+          "tool": "compute_average",
+          "args": {
+            "numbers": [
+              0.125,
+              3.5
+            ]
+          }
+        }
+      ],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 1428,
+      "latency_s": 1.355
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Convert 98.6 Fahrenheit to Celsius.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "fahrenheit",
+            "to_unit": "celsius",
+            "value": 98.6
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1424,
+      "latency_s": 1.695
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "How many kelvin is 25 degrees celsius?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "value": 25,
+            "from_unit": "celsius",
+            "to_unit": "kelvin"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1426,
+      "latency_s": 1.621
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "The oven says 350 F. What is that in C?",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "fahrenheit",
+            "to_unit": "celsius",
+            "value": 350
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1429,
+      "latency_s": 1.648
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Turn -40 celsius into fahrenheit.",
+      "expected": "convert_temperature",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "celsius",
+            "to_unit": "fahrenheit",
+            "value": -40
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1424,
+      "latency_s": 1.574
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "What's the weather in Seoul right now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "Seoul"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1423,
+      "latency_s": 0.927
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Is it raining in London at the moment?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_current_weather",
+          "args": {
+            "city": "London"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1423,
+      "latency_s": 2.137
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Current temperature in Busan?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "convert_temperature",
+          "args": {
+            "from_unit": "celsius",
+            "to_unit": "fahrenheit",
+            "value": 22
+          }
+        }
+      ],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 1420,
+      "latency_s": 1.651
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "How is the sky over Tokyo now?",
+      "expected": "get_current_weather",
+      "calls": [
+        {
+          "tool": "get_sunrise_time",
+          "args": {
+            "city": "Tokyo"
+          }
+        }
+      ],
+      "recall_hit": false,
+      "n_correct_calls": 0,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 1422,
+      "latency_s": 0.965
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "What time is it in New York?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "New York"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1422,
+      "latency_s": 0.976
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Tell me the current local time in Paris.",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Paris"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1423,
+      "latency_s": 0.928
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Is it already evening in Sydney? What's the time there?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Sydney"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1427,
+      "latency_s": 1.001
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Clock time in Berlin right now?",
+      "expected": "get_local_time",
+      "calls": [
+        {
+          "tool": "get_local_time",
+          "args": {
+            "city": "Berlin"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1421,
+      "latency_s": 0.882
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Convert 100 USD to KRW.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 100,
+            "from_currency": "USD",
+            "to_currency": "KRW"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1424,
+      "latency_s": 1.613
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "How much is 2500 yen in euros?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 2500,
+            "from_currency": "JPY",
+            "to_currency": "EUR"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1426,
+      "latency_s": 1.643
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "I have 50000 won, how many US dollars is that?",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "amount": 50000,
+            "from_currency": "won",
+            "to_currency": "usd"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": false,
+      "input_tokens": 1431,
+      "latency_s": 1.713
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Change 75 GBP into USD.",
+      "expected": "convert_currency",
+      "calls": [
+        {
+          "tool": "convert_currency",
+          "args": {
+            "from_currency": "GBP",
+            "to_currency": "USD",
+            "amount": 75
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1422,
+      "latency_s": 1.499
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Email kim@lab.ac.kr with subject 'Seminar' and say 'Slides are ready.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "kim@lab.ac.kr",
+            "subject": "Seminar",
+            "body": "Slides are ready."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1433,
+      "latency_s": 1.72
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Send an email to prof@uni.edu, subject Meeting, body: Can we meet Friday?",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "prof@uni.edu",
+            "subject": "Meeting",
+            "body": "Can we meet Friday?"
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1433,
+      "latency_s": 1.697
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Please email lee@corp.com titled 'Invoice' saying 'Invoice attached.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "lee@corp.com",
+            "subject": "Invoice",
+            "body": "Invoice attached."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1429,
+      "latency_s": 1.612
+    },
+    {
+      "n": 30,
+      "quality": "poor",
+      "rep": 0,
+      "query": "Shoot a mail to team@lab.org, subject 'Lunch', text 'Lunch at noon.'",
+      "expected": "send_email",
+      "calls": [
+        {
+          "tool": "send_email",
+          "args": {
+            "to": "team@lab.org",
+            "subject": "Lunch",
+            "body": "Lunch at noon."
+          }
+        }
+      ],
+      "recall_hit": true,
+      "n_correct_calls": 1,
+      "n_calls": 1,
+      "args_ok": true,
+      "input_tokens": 1435,
+      "latency_s": 1.729
+    }
+  ],
+  "summary": [
+    {
+      "n_tools": 6,
+      "description": "good",
+      "trials": 24,
+      "tool_recall": 0.958,
+      "tool_precision": 1.0,
+      "parameter_accuracy": 1.0,
+      "no_tool_call_rate": 0.042,
+      "mean_input_tokens": 485,
+      "mean_latency_s": 1.382
+    },
+    {
+      "n_tools": 6,
+      "description": "poor",
+      "trials": 24,
+      "tool_recall": 0.875,
+      "tool_precision": 0.84,
+      "parameter_accuracy": 0.952,
+      "no_tool_call_rate": 0.042,
+      "mean_input_tokens": 414,
+      "mean_latency_s": 1.739
+    },
+    {
+      "n_tools": 15,
+      "description": "good",
+      "trials": 24,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "parameter_accuracy": 1.0,
+      "no_tool_call_rate": 0.0,
+      "mean_input_tokens": 956,
+      "mean_latency_s": 1.356
+    },
+    {
+      "n_tools": 15,
+      "description": "poor",
+      "trials": 24,
+      "tool_recall": 0.833,
+      "tool_precision": 0.8,
+      "parameter_accuracy": 0.95,
+      "no_tool_call_rate": 0.042,
+      "mean_input_tokens": 797,
+      "mean_latency_s": 1.601
+    },
+    {
+      "n_tools": 30,
+      "description": "good",
+      "trials": 24,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "parameter_accuracy": 1.0,
+      "no_tool_call_rate": 0.0,
+      "mean_input_tokens": 1689,
+      "mean_latency_s": 1.489
+    },
+    {
+      "n_tools": 30,
+      "description": "poor",
+      "trials": 24,
+      "tool_recall": 0.75,
+      "tool_precision": 0.75,
+      "parameter_accuracy": 0.944,
+      "no_tool_call_rate": 0.0,
+      "mean_input_tokens": 1426,
+      "mean_latency_s": 1.463
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T09:28:18+00:00",
+    "llm": "qwen2.5:7b via Ollama OpenAI-compatible API",
+    "note": "servers are not run on their own; mcp_client launches the math server (stdio) and uses the weather server on :8000"
+  },
+  "results": {
+    "calculator": {
+      "source": "src/frameworks/langchain/calculator_tool_use.py",
+      "diff_file": "repro/book_min/book_calculator.diff",
+      "edits": [
+        {
+          "reason": "gpt-4o is a paid API model; same ChatOpenAI class via Ollama's OpenAI-compatible API"
+        },
+        {
+          "reason": "langchain-core 0.1.x (the book's pinned version) cannot invoke a tool with a whole ToolCall dict; pass args and wrap the ToolMessage"
+        },
+        {
+          "original_lines_changed": 2
+        }
+      ],
+      "runs": {
+        "book": {
+          "exit": 0,
+          "seconds": 6.0,
+          "stdout_tail": "multiply\n{'x': 393, 'y': 12.25}\n4814.25\nadd\n{'x': 11, 'y': 49}\n60.0\nThe result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60.",
+          "error_last_line": null
+        },
+        "current": {
+          "exit": 0,
+          "seconds": 6.0,
+          "stdout_tail": "multiply\n{'x': 393, 'y': 12.25}\n4814.25\nadd\n{'x': 11, 'y': 49}\n60.0\nThe result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60.",
+          "error_last_line": null
+        }
+      }
+    },
+    "wikipedia": {
+      "source": "src/frameworks/langchain/wikipedia_tool_use.py",
+      "diff_file": "repro/book_min/book_wikipedia.diff",
+      "edits": [
+        {
+          "reason": "gpt-4o is a paid API model; same ChatOpenAI class via Ollama's OpenAI-compatible API"
+        },
+        {
+          "reason": "Wikimedia requires an identifying User-Agent (w.wiki/4wJS); the library's shared default UA is rate-limited (HTTP 429). ToolMessage import for the 0.1.x fix below"
+        },
+        {
+          "reason": "langchain-core 0.1.x (the book's pinned version) cannot invoke a tool with a whole ToolCall dict; pass args and wrap the ToolMessage"
+        },
+        {
+          "original_lines_changed": 3
+        }
+      ],
+      "runs": {
+        "book": {
+          "exit": 1,
+          "seconds": 3.0,
+          "stdout_tail": "",
+          "error_last_line": "TypeError: WikipediaQueryRun._run() got an unexpected keyword argument '__arg1'"
+        },
+        "current": {
+          "exit": 0,
+          "seconds": 8.2,
+          "stdout_tail": "wikipedia\n{'query': 'Buzz Aldrin most impressive thing'}\nPage: Bart Sibrel\nSummary: Bart Winfield Sibrel (born 1964 or 1965) is an American conspiracy theorist who has written, produced, and directed films arguing that the Apollo Moon landings between 1969 and 1972 were staged by NASA under the control of the CIA. He has created four independent films pro\n\nIt seems there was a mix-up in the search. Let me correct that and find out what was most impressive about Buzz Aldrin.",
+          "error_last_line": null
+        }
+      }
+    },
+    "stock_price": {
+      "source": "src/frameworks/langchain/stock_price_tool_use.py",
+      "diff_file": "repro/book_min/book_stock_price.diff",
+      "edits": [
+        {
+          "reason": "gpt-4o is a paid API model; same ChatOpenAI class via Ollama's OpenAI-compatible API"
+        },
+        {
+          "reason": "api.example.com is a placeholder with no API behind it; Yahoo's unofficial chart endpoint needs no key but rejects the default UA (429)"
+        },
+        {
+          "reason": "response shape of that endpoint"
+        },
+        {
+          "reason": "for the 0.1.x fix below"
+        },
+        {
+          "reason": "langchain-core 0.1.x (the book's pinned version) cannot invoke a tool with a whole ToolCall dict; pass args and wrap the ToolMessage"
+        },
+        {
+          "original_lines_changed": 6
+        }
+      ],
+      "runs": {
+        "book": {
+          "exit": 0,
+          "seconds": 3.9,
+          "stdout_tail": "get_stock_price\n{'ticker': 'AAPL'}\n347.725\n\nThe current stock price of Apple (AAPL) is $347.73.",
+          "error_last_line": null
+        },
+        "current": {
+          "exit": 0,
+          "seconds": 4.3,
+          "stdout_tail": "get_stock_price\n{'ticker': 'AAPL'}\n347.725\n\nThe current stock price of Apple (AAPL) is $347.73.",
+          "error_last_line": null
+        }
+      }
+    },
+    "mcp_math_server": {
+      "source": "src/common/mcp/MCP_math_server.py",
+      "diff_file": "repro/book_min/book_mcp_math_server.diff",
+      "edits": [
+        {
+          "reason": "ast.Num was removed in Python 3.12"
+        },
+        {
+          "reason": "The book's server reads a custom {context, payload} envelope, not MCP JSON-RPC; expose the same compute_math as an MCP tool named \"math\" so the client's name lookup works"
+        },
+        {
+          "reason": "serve MCP instead of the envelope loop"
+        },
+        {
+          "original_lines_changed": 4
+        }
+      ],
+      "runs": {}
+    },
+    "mcp_weather_server": {
+      "source": "src/common/mcp/MCP_weather_server.py",
+      "diff_file": "repro/book_min/book_mcp_weather_server.diff",
+      "edits": [
+        {
+          "reason": "The book's server is a plain FastAPI POST endpoint with a custom envelope, not MCP; expose the same logic as an MCP tool named \"weather\""
+        },
+        {
+          "reason": "move the book's parsing into a function both endpoints share (body unchanged)"
+        },
+        {
+          "reason": "same sentence, returned as the tool result"
+        },
+        {
+          "reason": "serve MCP streamable HTTP at the URL the book's client expects"
+        },
+        {
+          "original_lines_changed": 19
+        }
+      ],
+      "runs": {}
+    },
+    "mcp_client": {
+      "source": "src/frameworks/langgraph_agents/langgraph_mcp_client.py",
+      "diff_file": "repro/book_min/book_mcp_client.diff",
+      "edits": [
+        {
+          "reason": "for sys.executable below"
+        },
+        {
+          "reason": "langchain.schema / langchain.tools no longer exist (langchain 1.x); same classes live in langchain_core"
+        },
+        {
+          "reason": "the \"math\" entry launched the weather server file; python3 is not a command on Windows"
+        },
+        {
+          "reason": "MCP tools have a JSON schema; LangChain rejects a bare string as input"
+        },
+        {
+          "reason": "asyncio.get_event_loop() without a running loop raises on Python 3.14"
+        },
+        {
+          "reason": "the graph node returns messages as {role, content} dicts, so the final message has no .content attribute"
+        },
+        {
+          "reason": "same as above"
+        },
+        {
+          "original_lines_changed": 10
+        }
+      ],
+      "runs": {
+        "current": {
+          "exit": 0,
+          "seconds": 4.8,
+          "stdout_tail": "Math answer: [{'type': 'text', 'text': \"Error executing tool math: Error parsing expression '  (3 + 5) * 12': unexpected indent (<unknown>, line 1)\", 'id': 'lc_0eb06bff-00a0-4f30-882d-afa3b07bbc0c'}]\nWeather answer: [{'type': 'text', 'text': 'The current temperature in Nyc is 58°F.', 'id': 'lc_bc9c9d6a-64eb-4c7f-b8b0-781a5c9330d5'}]",
+          "error_last_line": null
+        }
+      }
+    }
+  }
+}

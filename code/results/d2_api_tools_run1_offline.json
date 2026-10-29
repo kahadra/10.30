@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T07:36:21+00:00",
+    "python": "3.14.4",
+    "model": null
+  },
+  "part_a": {
+    "A1_wikipedia": {
+      "tool_name": "wikipedia",
+      "args_schema": {
+        "query": {
+          "description": "query to look up on wikipedia",
+          "title": "Query",
+          "type": "string"
+        }
+      },
+      "latency_s": 2.69,
+      "chars": 300,
+      "content": "Page: Buzz Aldrin\nSummary: Buzz Aldrin ( AWL-drin; born Edwin Eugene Aldrin Jr., January 20, 1930) is an American former astronaut, aeronautical engineer, and fighter pilot. He was the second person to walk on the Moon after mission commander Neil Armstrong. He made three spacewalks as pilot of NASA"
+    },
+    "A2_book_stock_tool": {
+      "url": "https://api.example.com/stocks/AAPL",
+      "timeout_set": false,
+      "default": {
+        "raised": true,
+        "error_type": "ConnectionError",
+        "error": "HTTPSConnectionPool(host='api.example.com', port=443): Max retries exceeded with url: /stocks/AAPL (Caused by NameResolutionError(\"HTTPSConnection(host='api.example.com', port=443): Failed to resolve 'api.example.com' ([Errno 11001] getaddrinfo failed)\"))",
+        "latency_s": 0.04
+      },
+      "handle_tool_error=True": {
+        "raised": true,
+        "error_type": "ConnectionError",
+        "error": "HTTPSConnectionPool(host='api.example.com', port=443): Max retries exceeded with url: /stocks/AAPL (Caused by NameResolutionError(\"HTTPSConnection(host='api.example.com', port=443): Failed to resolve 'api.example.com' ([Errno 11001] getaddrinfo failed)\"))"
+      }
+    }
+  },
+  "part_b": [
+    {
+      "scenario": "primary ok",
+      "result": {
+        "ticker": "AAPL",
+        "price": 231.4,
+        "source": "primary"
+      },
+      "attempts": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": 200,
+          "ms": 2
+        }
+      ],
+      "n_requests": 1,
+      "elapsed_s": 0.0
+    },
+    {
+      "scenario": "primary flaky (503 x2)",
+      "result": {
+        "ticker": "AAPL",
+        "price": 231.4,
+        "source": "primary"
+      },
+      "attempts": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "primary",
+          "attempt": 2,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "primary",
+          "attempt": 3,
+          "outcome": 200,
+          "ms": 2
+        }
+      ],
+      "n_requests": 3,
+      "elapsed_s": 0.31
+    },
+    {
+      "scenario": "primary down -> backup",
+      "result": {
+        "ticker": "AAPL",
+        "price": 231.35,
+        "source": "backup"
+      },
+      "attempts": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": 503,
+          "ms": 17
+        },
+        {
+          "provider": "primary",
+          "attempt": 2,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "primary",
+          "attempt": 3,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "backup",
+          "attempt": 1,
+          "outcome": 200,
+          "ms": 21
+        }
+      ],
+      "n_requests": 4,
+      "elapsed_s": 0.34
+    },
+    {
+      "scenario": "primary slow (timeout) -> backup",
+      "result": {
+        "ticker": "AAPL",
+        "price": 231.35,
+        "source": "backup"
+      },
+      "attempts": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": "timeout",
+          "ms": 528
+        },
+        {
+          "provider": "primary",
+          "attempt": 2,
+          "outcome": "timeout",
+          "ms": 506
+        },
+        {
+          "provider": "primary",
+          "attempt": 3,
+          "outcome": "timeout",
+          "ms": 514
+        },
+        {
+          "provider": "backup",
+          "attempt": 1,
+          "outcome": 200,
+          "ms": 2
+        }
+      ],
+      "n_requests": 4,
+      "elapsed_s": 1.85
+    },
+    {
+      "scenario": "both down -> cache",
+      "result": {
+        "ticker": "AAPL",
+        "price": 229.87,
+        "as_of": "2026-10-23T20:00:00Z",
+        "source": "cache"
+      },
+      "attempts": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": 503,
+          "ms": 1
+        },
+        {
+          "provider": "primary",
+          "attempt": 2,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "primary",
+          "attempt": 3,
+          "outcome": 503,
+          "ms": 3
+        },
+        {
+          "provider": "backup",
+          "attempt": 1,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "backup",
+          "attempt": 2,
+          "outcome": 503,
+          "ms": 26
+        },
+        {
+          "provider": "backup",
+          "attempt": 3,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "cache",
+          "attempt": 1,
+          "outcome": "hit"
+        }
+      ],
+      "n_requests": 6,
+      "elapsed_s": 0.64
+    },
+    {
+      "scenario": "invalid input",
+      "result": {
+        "error": "invalid_ticker",
+        "detail": "Use an exchange ticker like AAPL.",
+        "retryable": false
+      },
+      "attempts": [],
+      "n_requests": 0
+    }
+  ]
+}

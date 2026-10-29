@@ -1,0 +1,500 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T09:52:10+00:00",
+    "llm": "qwen2.5:7b via Ollama /v1"
+  },
+  "success_criterion": "the right page was retrieved AND the answer mentions one of its key facts",
+  "summary": {
+    "book: 1 round, top_k=1": {
+      "success": 0.0,
+      "retrieved": 0.0
+    },
+    "multi-step (<=3), top_k=1": {
+      "success": 0.0,
+      "retrieved": 0.0
+    },
+    "1 round, top_k=3": {
+      "success": 0.0,
+      "retrieved": 0.0
+    },
+    "multi-step (<=3), top_k=3": {
+      "success": 0.0,
+      "retrieved": 0.0
+    }
+  },
+  "verdicts": {
+    "H1_multi_step": "not supported",
+    "H2_top_k3": "not supported"
+  },
+  "retry_after_waits_s": [
+    8,
+    34,
+    35,
+    37,
+    30,
+    34,
+    43,
+    41,
+    45,
+    39,
+    44,
+    43,
+    46,
+    39,
+    44,
+    43
+  ],
+  "rows": [
+    {
+      "condition": "book: 1 round, top_k=1",
+      "person": "Buzz Aldrin",
+      "trace": [
+        {
+          "query": "Buzz Aldrin most impressive thing",
+          "pages": [
+            "Bart Sibrel"
+          ]
+        }
+      ],
+      "final": "It seems there was a mix-up in the search. Let me correct that and find out what was most impressive about Buzz Aldrin.\n\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "book: 1 round, top_k=1",
+      "person": "Marie Curie",
+      "trace": [
+        {
+          "query": "Marie Curie most impressive achievement",
+          "pages": [
+            "Genius (American TV series)"
+          ]
+        }
+      ],
+      "final": "It seems there was a misunderstanding. Let me correct that and directly search for Marie Curie's most impressive achievement.\n\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "book: 1 round, top_k=1",
+      "person": "Alan Turing",
+      "trace": [
+        {
+          "query": "Alan Turing most impressive thing",
+          "pages": [
+            "Artificial intelligence"
+          ]
+        }
+      ],
+      "final": "It seems like the direct search for \"Alan Turing most impressive thing\" didn't yield the exact information we were looking for. Let me refine the query to get more accurate results about Alan Turing's most impressive contributions.\n\nI will try searching for \"Alan Turing impressive contributions\" instead.\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "book: 1 round, top_k=1",
+      "person": "Ada Lovelace",
+      "trace": [
+        {
+          "query": "Ada Lovelace most impressive thing",
+          "pages": [
+            "Analytical engine"
+          ]
+        }
+      ],
+      "final": "Ada Lovelace is most impressive for her work and insights related to Charles Babbage's analytical engine. She is often credited as the first computer programmer for her notes on the engine, which included what are considered to be the first algorithm intended to be processed by a machine. This work was published in 1843 and demonstrated a deep understanding of the potential of the analytical engine beyond mere number crunching, envisioning it as a device capable of a wide range of tasks, including music composition.",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "book: 1 round, top_k=1",
+      "person": "Yuri Gagarin",
+      "trace": [
+        {
+          "query": "Yuri Gagarin most impressive achievement",
+          "pages": [
+            "Yuriy Borzakovskiy"
+          ]
+        }
+      ],
+      "final": "It seems there was a mix-up with the Wikipedia query. Let me correct that and find out what was the most impressive thing about Yuri Gagarin.\n\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "book: 1 round, top_k=1",
+      "person": "Katherine Johnson",
+      "trace": [
+        {
+          "query": "Katherine Johnson impressive achievements",
+          "pages": [
+            "List of Latin phrases (full)"
+          ]
+        }
+      ],
+      "final": "It seems there was a misunderstanding. I will directly search for information about Katherine Johnson's impressive achievements.\n\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=1",
+      "person": "Buzz Aldrin",
+      "trace": [
+        {
+          "query": "Buzz Aldrin most impressive thing",
+          "pages": [
+            "Bart Sibrel"
+          ]
+        },
+        {
+          "query": "Buzz Aldrin most impressive thing",
+          "pages": [
+            "Bart Sibrel"
+          ]
+        },
+        {
+          "query": "most impressive thing about Buzz Aldrin",
+          "pages": [
+            "Bart Sibrel"
+          ]
+        }
+      ],
+      "final": "It seems the search is not providing the correct information. Let me try a more direct approach to find out what is considered the most impressive thing about Buzz Aldrin.\n\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=1",
+      "person": "Marie Curie",
+      "trace": [
+        {
+          "query": "Marie Curie most impressive achievement",
+          "pages": [
+            "Genius (American TV series)"
+          ]
+        },
+        {
+          "query": "Marie Curie most impressive achievement",
+          "pages": [
+            "Genius (American TV series)"
+          ]
+        },
+        {
+          "query": "Marie Curie most impressive achievement",
+          "pages": [
+            "Genius (American TV series)"
+          ]
+        }
+      ],
+      "final": "",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=1",
+      "person": "Alan Turing",
+      "trace": [
+        {
+          "query": "Alan Turing most impressive thing",
+          "pages": [
+            "Artificial intelligence"
+          ]
+        },
+        {
+          "query": "Alan Turing impressive contributions",
+          "pages": [
+            "History of artificial intelligence"
+          ]
+        },
+        {
+          "query": "Alan Turing impressive contributions",
+          "pages": [
+            "History of artificial intelligence"
+          ]
+        }
+      ],
+      "final": "It appears that the initial searches are not providing the specific information we need about Alan Turing's most impressive contributions. Let me try a more direct approach by searching for \"Alan Turing impressive achievements\" to get a clearer answer.\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=1",
+      "person": "Ada Lovelace",
+      "trace": [
+        {
+          "query": "Ada Lovelace most impressive thing",
+          "pages": [
+            "Analytical engine"
+          ]
+        }
+      ],
+      "final": "Ada Lovelace is most impressive for her work and insights related to Charles Babbage's analytical engine. She is often credited as the first computer programmer for her notes on the engine, which included what are considered to be the first algorithm intended to be processed by a machine. This work was published in 1843 and demonstrated a deep understanding of the potential of the analytical engine beyond mere number crunching, envisioning it as a device capable of a wide range of tasks, including music composition.",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=1",
+      "person": "Yuri Gagarin",
+      "trace": [
+        {
+          "query": "Yuri Gagarin most impressive achievement",
+          "pages": [
+            "Yuriy Borzakovskiy"
+          ]
+        },
+        {
+          "query": "Yuri Gagarin most impressive achievement",
+          "pages": [
+            "Yuriy Borzakovskiy"
+          ]
+        },
+        {
+          "query": "Yuri Gagarin most impressive achievement",
+          "pages": [
+            "Yuriy Borzakovskiy"
+          ]
+        }
+      ],
+      "final": "It seems there is a persistent confusion with the name. Let me directly search for Yuri Gagarin again to ensure we get the correct information.\n\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=1",
+      "person": "Katherine Johnson",
+      "trace": [
+        {
+          "query": "Katherine Johnson impressive achievements",
+          "pages": [
+            "List of Latin phrases (full)"
+          ]
+        },
+        {
+          "query": "Katherine Johnson impressive achievements",
+          "pages": [
+            "List of Latin phrases (full)"
+          ]
+        },
+        {
+          "query": "Katherine Johnson impressive achievements",
+          "pages": [
+            "List of Latin phrases (full)"
+          ]
+        }
+      ],
+      "final": "It seems there is a recurring issue with the search. Let's try a different approach. I'll directly search Wikipedia for information on Katherine Johnson's impressive achievements.\n\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "1 round, top_k=3",
+      "person": "Buzz Aldrin",
+      "trace": [
+        {
+          "query": "Buzz Aldrin most impressive thing",
+          "pages": [
+            "Bart Sibrel",
+            "Neil Armstrong"
+          ]
+        }
+      ],
+      "final": "One of the most impressive things about Buzz Aldrin is not directly related to his space mission, but rather an incident that occurred after the Apollo 11 mission. After Sibrel, a conspiracy theorist, falsely claimed to have arranged a meeting with Aldrin to challenge his claim of walking on the moon, Aldrin ended up punching Sibrel outside the Luxe Hotel in Beverly Hills. This incident brought significant publicity to both Aldrin and Sibrel, although no criminal charges were filed against Aldrin.",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "1 round, top_k=3",
+      "person": "Marie Curie",
+      "trace": [
+        {
+          "query": "Marie Curie most impressive achievement",
+          "pages": [
+            "Genius (American TV series)"
+          ]
+        }
+      ],
+      "final": "It seems like the search result is not directly related to Marie Curie. Let me try a direct search on Marie Curie.\n\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "1 round, top_k=3",
+      "person": "Alan Turing",
+      "trace": [
+        {
+          "query": "Alan Turing most impressive thing",
+          "pages": [
+            "Artificial intelligence"
+          ]
+        }
+      ],
+      "final": "It seems like the search result provided information about artificial intelligence rather than focusing on Alan Turing. Let me try a more specific search for Alan Turing.\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "1 round, top_k=3",
+      "person": "Ada Lovelace",
+      "trace": [
+        {
+          "query": "Ada Lovelace most impressive thing",
+          "pages": [
+            "Analytical engine"
+          ]
+        }
+      ],
+      "final": "Ada Lovelace is most impressive for her work on Charles Babbage's analytical engine. She wrote extensive notes on the engine, which included what is now considered the first algorithm intended to be processed by a machine. This algorithm was designed to compute Bernoulli numbers, and it is seen as a precursor to modern computer programming. Her insights and the notes she wrote are considered foundational in the history of computer science.",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "1 round, top_k=3",
+      "person": "Yuri Gagarin",
+      "trace": [
+        {
+          "query": "Yuri Gagarin most impressive achievement",
+          "pages": [
+            "Yuriy Borzakovskiy",
+            "Sergei Korolev"
+          ]
+        }
+      ],
+      "final": "It seems there was a misunderstanding. I was looking for information about Yuri Gagarin, the first human to journey into outer space. Let me correct that and provide the right information.\n\nI will try again to find the most impressive thing about Yuri Gagarin.\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "1 round, top_k=3",
+      "person": "Katherine Johnson",
+      "trace": [
+        {
+          "query": "Katherine Johnson impressive achievements",
+          "pages": [
+            "List of Latin phrases (full)",
+            "Morgan Fairchild"
+          ]
+        }
+      ],
+      "final": "It seems the search did not directly provide the information about Katherine Johnson's impressive achievements. Let me try a more specific search.\n\nI will search for \"Katherine Johnson impressive achievements\" again to get the relevant information.\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=3",
+      "person": "Buzz Aldrin",
+      "trace": [
+        {
+          "query": "Buzz Aldrin most impressive thing",
+          "pages": [
+            "Bart Sibrel",
+            "Neil Armstrong"
+          ]
+        }
+      ],
+      "final": "One of the most impressive things about Buzz Aldrin is not directly related to his space mission, but rather an incident that occurred after the Apollo 11 mission. After Sibrel, a conspiracy theorist, falsely claimed to have arranged a meeting with Aldrin to challenge his claim of walking on the moon, Aldrin ended up punching Sibrel outside the Luxe Hotel in Beverly Hills. This incident brought significant publicity to both Aldrin and Sibrel, although no criminal charges were filed against Aldrin.",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=3",
+      "person": "Marie Curie",
+      "trace": [
+        {
+          "query": "Marie Curie most impressive achievement",
+          "pages": [
+            "Genius (American TV series)"
+          ]
+        },
+        {
+          "query": "Marie Curie most impressive achievement",
+          "pages": [
+            "Genius (American TV series)"
+          ]
+        },
+        {
+          "query": "Marie Curie most impressive achievement",
+          "pages": [
+            "Genius (American TV series)"
+          ]
+        }
+      ],
+      "final": "Let's try a direct search on Marie Curie to find out more about her most impressive achievements.\n\n",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=3",
+      "person": "Alan Turing",
+      "trace": [
+        {
+          "query": "Alan Turing most impressive achievement",
+          "pages": [
+            "History of artificial intelligence"
+          ]
+        }
+      ],
+      "final": "Based on the information from the Wikipedia page, one of the most impressive things about Alan Turing was his groundbreaking work on the concept of the Turing machine and the Turing test. The Turing machine is a theoretical device that can simulate any computer algorithm, and the Turing test is a method for determining whether a machine can exhibit human-like intelligence. Turing's contributions laid the foundation for the field of artificial intelligence, and his ideas continue to influence the development of AI to this day.",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=3",
+      "person": "Ada Lovelace",
+      "trace": [
+        {
+          "query": "Ada Lovelace most impressive thing",
+          "pages": [
+            "Analytical engine"
+          ]
+        }
+      ],
+      "final": "Ada Lovelace is most impressive for her work on Charles Babbage's analytical engine. She wrote extensive notes on the engine, which included what is now considered the first algorithm intended to be processed by a machine. This algorithm was designed to compute Bernoulli numbers, and it is seen as a precursor to modern computer programming. Her insights and the notes she wrote are considered foundational in the history of computer science.",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=3",
+      "person": "Yuri Gagarin",
+      "trace": [
+        {
+          "query": "Yuri Gagarin most impressive achievement",
+          "pages": [
+            "Sergei Korolev"
+          ]
+        }
+      ],
+      "final": "The most impressive thing about Yuri Gagarin was his achievement as the first human to journey into outer space. On April 12, 1961, he completed a single orbit of the Earth aboard the Vostok 1 spacecraft, marking a significant milestone in the history of space exploration. This event not only demonstrated the technological capabilities of the Soviet Union but also sparked a new era of space race between the Soviet Union and the United States.",
+      "retrieved_right_page": false,
+      "success": false
+    },
+    {
+      "condition": "multi-step (<=3), top_k=3",
+      "person": "Katherine Johnson",
+      "trace": [
+        {
+          "query": "Katherine Johnson impressive achievements",
+          "pages": [
+            "List of Latin phrases (full)",
+            "Morgan Fairchild"
+          ]
+        },
+        {
+          "query": "Katherine Johnson impressive achievements",
+          "pages": [
+            "List of Latin phrases (full)",
+            "Morgan Fairchild"
+          ]
+        },
+        {
+          "query": "Katherine Johnson impressive achievements",
+          "pages": [
+            "List of Latin phrases (full)",
+            "Morgan Fairchild"
+          ]
+        }
+      ],
+      "final": "It seems the search is not providing the specific information we need about Katherine Johnson. Let me try a more targeted search query to find the impressive achievements of Katherine Johnson.\n\nI will search for \"Katherine Johnson impressive achievements\" again to get the relevant information.\n",
+      "retrieved_right_page": false,
+      "success": false
+    }
+  ]
+}

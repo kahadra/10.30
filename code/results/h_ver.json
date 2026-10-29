@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T09:34:21+00:00",
+    "llm": "qwen2.5:7b via Ollama /v1"
+  },
+  "hypothesis": "book code targets langchain-core >= 0.2 (newer than its pins)",
+  "env": "Python 3.11, langchain/core 0.2.16 0.2.43",
+  "exit": 0,
+  "stdout_tail": "multiply\n{'x': 393, 'y': 12.25}\n4814.25\nadd\n{'x': 11, 'y': 49}\n60.0\nThe result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60.",
+  "stderr_last": "",
+  "verdict": "supported"
+}

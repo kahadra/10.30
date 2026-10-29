@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T08:33:47+00:00",
+    "python": "3.14.4",
+    "model": "ollama:qwen2.5:7b",
+    "query": "What is 393 * 12.25? Also, what is 11 + 49?"
+  },
+  "runs": [
+    {
+      "variant": "repo",
+      "tool_calls": [
+        {
+          "name": "multiply",
+          "args": {
+            "x": 393,
+            "y": 12.25
+          },
+          "content": "4814.25"
+        },
+        {
+          "name": "add",
+          "args": {
+            "x": 11,
+            "y": 49
+          },
+          "content": "60.0"
+        }
+      ],
+      "final_responses": [
+        "The result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60."
+      ]
+    },
+    {
+      "variant": "print",
+      "tool_calls": [
+        {
+          "name": "multiply",
+          "args": {
+            "x": 393,
+            "y": 12.25
+          },
+          "content": "4814.25"
+        },
+        {
+          "name": "add",
+          "args": {
+            "x": 11,
+            "y": 49
+          },
+          "content": "60.0"
+        }
+      ],
+      "final_responses": [
+        "The result of 393 multiplied by 12.25 is 4814.25. \n\nFor the addition, 11 + 49 equals 60.",
+        "The result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T09:33:23+00:00",
+    "llm": "qwen2.5:7b via Ollama /v1"
+  },
+  "hypothesis": "the model's query pulls an unrelated top-1 page",
+  "pages": {
+    "Buzz Aldrin most impressive thing": [
+      "Bart Sibrel"
+    ],
+    "Buzz Aldrin": [
+      "Buzz Aldrin"
+    ]
+  },
+  "verdict": "supported",
+  "retry_after_waits_s": []
+}

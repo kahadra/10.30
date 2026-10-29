@@ -1,0 +1,341 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T09:58:28+00:00",
+    "llm": "qwen2.5:7b via Ollama /v1"
+  },
+  "hypothesis": "the tool description drives query formation",
+  "title_only_description": "Look up one Wikipedia article and return its summary. The input must be the title of the article, such as a person's full name (e.g. 'Buzz Aldrin') or a topic name - not a question and not extra words like 'most impressive'.",
+  "summary": {
+    "original description, 1 round": {
+      "success": 0.0,
+      "retrieved_right_page": 0.0,
+      "mentions_key_fact": 0.16666666666666666
+    },
+    "title-only description, 1 round": {
+      "success": 0.8333333333333334,
+      "retrieved_right_page": 0.8333333333333334,
+      "mentions_key_fact": 1.0
+    },
+    "title-only description, multi-step (<=3)": {
+      "success": 0.8333333333333334,
+      "retrieved_right_page": 1.0,
+      "mentions_key_fact": 0.8333333333333334
+    }
+  },
+  "verdict": "supported",
+  "retry_after_waits_s": [
+    31,
+    32,
+    19,
+    29,
+    24
+  ],
+  "rows": [
+    {
+      "condition": "original description, 1 round",
+      "person": "Buzz Aldrin",
+      "trace": [
+        {
+          "query": "Buzz Aldrin most impressive fact",
+          "pages": [
+            "Neil Armstrong"
+          ]
+        }
+      ],
+      "final": "It seems there was a mix-up with the Wikipedia search. Let me correct that and find the most impressive fact about Buzz Aldrin.\n\n",
+      "retrieved_right_page": false,
+      "mentions_key_fact": false,
+      "success": false
+    },
+    {
+      "condition": "original description, 1 round",
+      "person": "Marie Curie",
+      "trace": [
+        {
+          "query": "Marie Curie most impressive achievement",
+          "pages": [
+            "Genius (American TV series)"
+          ]
+        }
+      ],
+      "final": "It seems there was a misunderstanding. Let me correct that and directly search for Marie Curie's most impressive achievement.\n\n",
+      "retrieved_right_page": false,
+      "mentions_key_fact": false,
+      "success": false
+    },
+    {
+      "condition": "original description, 1 round",
+      "person": "Alan Turing",
+      "trace": [
+        {
+          "query": "Alan Turing most impressive thing",
+          "pages": [
+            "Artificial intelligence"
+          ]
+        }
+      ],
+      "final": "It seems like the direct search for \"Alan Turing most impressive thing\" didn't yield the exact information we were looking for. Let me refine the query to get more accurate results about Alan Turing's most impressive contributions.\n\nI will try searching for \"Alan Turing impressive contributions\" instead.\n",
+      "retrieved_right_page": false,
+      "mentions_key_fact": false,
+      "success": false
+    },
+    {
+      "condition": "original description, 1 round",
+      "person": "Ada Lovelace",
+      "trace": [
+        {
+          "query": "Ada Lovelace most impressive thing",
+          "pages": [
+            "Analytical engine"
+          ]
+        }
+      ],
+      "final": "Ada Lovelace is most impressive for her work and insights related to Charles Babbage's analytical engine. She is often credited as the first computer programmer for her notes on the engine, which included what are considered to be the first algorithm intended to be processed by a machine. This work was published in 1843 and demonstrated a deep understanding of the potential of the analytical engine beyond mere number crunching, envisioning it as a device capable of a wide range of tasks, including music composition.",
+      "retrieved_right_page": false,
+      "mentions_key_fact": true,
+      "success": false
+    },
+    {
+      "condition": "original description, 1 round",
+      "person": "Yuri Gagarin",
+      "trace": [
+        {
+          "query": "Yuri Gagarin most impressive achievement",
+          "pages": [
+            "Yuriy Borzakovskiy"
+          ]
+        }
+      ],
+      "final": "It seems there was a mix-up with the Wikipedia query. Let me correct that and find out what was the most impressive thing about Yuri Gagarin.\n\n",
+      "retrieved_right_page": false,
+      "mentions_key_fact": false,
+      "success": false
+    },
+    {
+      "condition": "original description, 1 round",
+      "person": "Katherine Johnson",
+      "trace": [
+        {
+          "query": "Katherine Johnson impressive achievements",
+          "pages": [
+            "List of Latin phrases (full)"
+          ]
+        }
+      ],
+      "final": "It seems there was a misunderstanding. I will directly search for information about Katherine Johnson's impressive achievements.\n\n",
+      "retrieved_right_page": false,
+      "mentions_key_fact": false,
+      "success": false
+    },
+    {
+      "condition": "title-only description, 1 round",
+      "person": "Buzz Aldrin",
+      "trace": [
+        {
+          "query": "Buzz Aldrin Apollo 11",
+          "pages": [
+            "Apollo 11 in popular culture"
+          ]
+        }
+      ],
+      "final": "While the summary provided focuses on the cultural impact of Apollo 11, let's delve into a more specific and impressive aspect of Buzz Aldrin's role during the mission. During the Apollo 11 mission, Buzz Aldrin performed the first Moonwalk, becoming the second person to walk on the lunar surface. This was an incredibly impressive and historic achievement. Would you like to know more about his experience during the Moonwalk?",
+      "retrieved_right_page": false,
+      "mentions_key_fact": true,
+      "success": false
+    },
+    {
+      "condition": "title-only description, 1 round",
+      "person": "Marie Curie",
+      "trace": [
+        {
+          "query": "Marie Curie",
+          "pages": [
+            "Marie Curie"
+          ]
+        }
+      ],
+      "final": "Based on the summary, Marie Curie was a Polish and naturalised-French physicist and chemist who shared the 1903 Nobel Prize in Physics with her husband, Pierre Curie. However, this summary does not directly address the most impressive aspects of her life and work. Let me provide a more detailed summary that includes some of her most impressive achievements.\n",
+      "retrieved_right_page": true,
+      "mentions_key_fact": true,
+      "success": true
+    },
+    {
+      "condition": "title-only description, 1 round",
+      "person": "Alan Turing",
+      "trace": [
+        {
+          "query": "Alan Turing",
+          "pages": [
+            "Alan Turing"
+          ]
+        }
+      ],
+      "final": "Based on the summary, Alan Turing is widely regarded as the father of theoretical computer science due to his foundational work on the concepts of algorithm and computation with the Turing machine, a model of a general-purpose computer. This is indeed one of the most impressive things about him. However, Turing's contributions extend beyond this. He also played a crucial role in cracking the German Enigma codes during World War II, which significantly aided the Allied forces. Would you like more details on his code-breaking efforts?",
+      "retrieved_right_page": true,
+      "mentions_key_fact": true,
+      "success": true
+    },
+    {
+      "condition": "title-only description, 1 round",
+      "person": "Ada Lovelace",
+      "trace": [
+        {
+          "query": "Ada Lovelace",
+          "pages": [
+            "Ada Lovelace"
+          ]
+        }
+      ],
+      "final": "Based on the summary, Ada Lovelace is known for her work on Charles Babbage's analytical engine. However, to provide a more detailed and impressive aspect of her work, let's delve deeper into her contributions. I will perform a more detailed lookup to find out what made her work particularly impressive.\n",
+      "retrieved_right_page": true,
+      "mentions_key_fact": true,
+      "success": true
+    },
+    {
+      "condition": "title-only description, 1 round",
+      "person": "Yuri Gagarin",
+      "trace": [
+        {
+          "query": "Yuri Gagarin",
+          "pages": [
+            "Yuri Gagarin"
+          ]
+        }
+      ],
+      "final": "The most impressive thing about Yuri Gagarin is undoubtedly his achievement as the first human to journey into outer space. On April 12, 1961, he completed a single orbit of the Earth aboard Vostok 1, launching from the Baikonur Cosmodrome in the Kazakh SSR. This historic flight marked a significant milestone in the Space Age and demonstrated the technological capabilities of the Soviet Union during the Cold War.",
+      "retrieved_right_page": true,
+      "mentions_key_fact": true,
+      "success": true
+    },
+    {
+      "condition": "title-only description, 1 round",
+      "person": "Katherine Johnson",
+      "trace": [
+        {
+          "query": "Katherine Johnson",
+          "pages": [
+            "Katherine Johnson"
+          ]
+        }
+      ],
+      "final": "Katherine Johnson was an American mathematician and human computer whose calculations of orbital mechanics were critical to the success of the first and subsequent U.S. crewed spaceflights. One of the most impressive things about her was her role in the space race. She calculated the trajectory for Alan Shepard's 1961 Mercury mission, which was the first crewed spaceflight by the United States. Her work was crucial in ensuring the safety and success of this mission. Additionally, she also contributed to the Apollo 11 mission, which aimed to land the first humans on the Moon. Her calculations were so accurate that she was later quoted as saying, \"I figured if I could get the right answer, I didn't care if it was the first or the hundredth time.\"",
+      "retrieved_right_page": true,
+      "mentions_key_fact": true,
+      "success": true
+    },
+    {
+      "condition": "title-only description, multi-step (<=3)",
+      "person": "Buzz Aldrin",
+      "trace": [
+        {
+          "query": "Buzz Aldrin",
+          "pages": [
+            "Buzz Aldrin"
+          ]
+        }
+      ],
+      "final": "Buzz Aldrin, born Edwin Eugene Aldrin Jr. on January 20, 1930, is an American former astronaut, aeronautical engineer, and fighter pilot. He is notable for being the second person to walk on the Moon after mission commander Neil Armstrong during the Apollo 11 mission. Additionally, he made three spacewalks as the pilot of NASA's Gemini 12 mission. His historic moonwalk was a significant achievement in space exploration. Would you like to know more about his specific actions during the moonwalk or his other accomplishments?",
+      "retrieved_right_page": true,
+      "mentions_key_fact": true,
+      "success": true
+    },
+    {
+      "condition": "title-only description, multi-step (<=3)",
+      "person": "Marie Curie",
+      "trace": [
+        {
+          "query": "Marie Curie",
+          "pages": [
+            "Marie Curie"
+          ]
+        },
+        {
+          "query": "Marie Curie",
+          "pages": [
+            "Marie Curie"
+          ]
+        }
+      ],
+      "final": "Based on the summary, Marie Curie shared the 1903 Nobel Prize in Physics with her husband, Pierre Curie, \"for their joint researches on the radiation phenomena discovered by Professor Henri Becquerel.\" This was her first Nobel Prize. Later, she was awarded the 1911 Nobel Prize in Chemistry \"for her services to the advancement of chemistry by the discovery of the elements radium and polonium, by the isolation of radium and the study of the nature and compounds of this remarkable element.\"\n\nMarie Curie's most impressive achievements include:\n\n1. Being the first woman to win a Nobel Prize and the first person and only woman to win twice, both in different scientific fields (Physics and Chemistry).\n2. Discovering the elements radium and polonium.\n3. Isolating radium and studying its properties.\n4. Pioneering the field of radioactivity, which led to significant advancements in the medical field, particularly in cancer treatment through radiation therapy.\n\nThese accomplishments highlight her immense contributions to science and her enduring legacy.",
+      "retrieved_right_page": true,
+      "mentions_key_fact": true,
+      "success": true
+    },
+    {
+      "condition": "title-only description, multi-step (<=3)",
+      "person": "Alan Turing",
+      "trace": [
+        {
+          "query": "Alan Turing",
+          "pages": [
+            "Alan Turing"
+          ]
+        }
+      ],
+      "final": "Based on the summary, Alan Turing is widely regarded as the father of theoretical computer science due to his foundational work on the concepts of algorithm and computation with the Turing machine, a model of a general-purpose computer. This is indeed one of the most impressive things about him. Would you like more details on his contributions or any specific aspect of his work?",
+      "retrieved_right_page": true,
+      "mentions_key_fact": true,
+      "success": true
+    },
+    {
+      "condition": "title-only description, multi-step (<=3)",
+      "person": "Ada Lovelace",
+      "trace": [
+        {
+          "query": "Ada Lovelace",
+          "pages": [
+            "Ada Lovelace"
+          ]
+        },
+        {
+          "query": "Ada Lovelace contributions to computing",
+          "pages": [
+            "Ada Lovelace"
+          ]
+        },
+        {
+          "query": "Ada Lovelace",
+          "pages": [
+            "Ada Lovelace"
+          ]
+        }
+      ],
+      "final": "It appears that the summary provided is still quite brief. Let me conduct a more detailed lookup to find out what made Ada Lovelace's work particularly impressive.\n\n",
+      "retrieved_right_page": true,
+      "mentions_key_fact": false,
+      "success": false
+    },
+    {
+      "condition": "title-only description, multi-step (<=3)",
+      "person": "Yuri Gagarin",
+      "trace": [
+        {
+          "query": "Yuri Gagarin",
+          "pages": [
+            "Yuri Gagarin"
+          ]
+        }
+      ],
+      "final": "The most impressive thing about Yuri Gagarin is undoubtedly his achievement of being the first human to journey into outer space. On April 12, 1961, he completed a single orbit of the Earth aboard Vostok 1, launching from the Baikonur Cosmodrome in the Kazakh SSR. This historic flight marked a significant milestone in the Space Age and demonstrated the technological capabilities of the Soviet Union during the Cold War era.",
+      "retrieved_right_page": true,
+      "mentions_key_fact": true,
+      "success": true
+    },
+    {
+      "condition": "title-only description, multi-step (<=3)",
+      "person": "Katherine Johnson",
+      "trace": [
+        {
+          "query": "Katherine Johnson",
+          "pages": [
+            "Katherine Johnson"
+          ]
+        }
+      ],
+      "final": "Katherine Johnson was an American mathematician and human computer whose calculations of orbital mechanics were critical to the success of the first and subsequent U.S. crewed spaceflights. One of the most impressive things about her was her role in the space race. She calculated the trajectory for Alan Shepard's 1961 Mercury mission, which was the first crewed spaceflight by the United States. Her work was crucial in ensuring the safety and success of this mission. Additionally, she also contributed to the Apollo 11 mission, which aimed to land the first humans on the Moon. Her calculations were so accurate that she was later quoted as saying, \"I figured if I could get the right answer, I didn't care if it was the first or the hundredth time.\"",
+      "retrieved_right_page": true,
+      "mentions_key_fact": true,
+      "success": true
+    }
+  ]
+}

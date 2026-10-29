@@ -1,0 +1,1092 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T08:30:35+00:00",
+    "python": "3.14.4",
+    "model": "ollama:qwen2.5:7b",
+    "provider": "ollama"
+  },
+  "part_b_scripted": [
+    {
+      "case": "B1 invalid args",
+      "model": "scripted",
+      "events": [
+        "invalid_args",
+        "ok",
+        "ok"
+      ],
+      "final_raw": "393 times 12.25 is 4814.25, and 11 + 49 is 60.",
+      "final": "393 times 12.25 is 4814.25, and 11 + 49 is 60."
+    },
+    {
+      "case": "B2 unknown tool",
+      "model": "scripted",
+      "events": [
+        "unknown_tool",
+        "ok",
+        "ok"
+      ],
+      "final_raw": "393 times 12.25 is 4814.25, and 11 + 49 is 60.",
+      "final": "393 times 12.25 is 4814.25, and 11 + 49 is 60."
+    },
+    {
+      "case": "B3 transient x2",
+      "model": "scripted",
+      "events": [
+        "retry",
+        "retry",
+        "ok",
+        "ok"
+      ],
+      "final_raw": "393 times 12.25 is 4814.25, and 11 + 49 is 60.",
+      "final": "393 times 12.25 is 4814.25, and 11 + 49 is 60."
+    },
+    {
+      "case": "B4 persistent -> fallback",
+      "model": "scripted",
+      "events": [
+        "retry",
+        "retry",
+        "retry",
+        "fallback",
+        "ok"
+      ],
+      "final_raw": "393 times 12.25 is 4814.25, and 11 + 49 is 60.",
+      "final": "393 times 12.25 is 4814.25, and 11 + 49 is 60."
+    },
+    {
+      "case": "B6 ungrounded final",
+      "model": "scripted",
+      "events": [
+        "retry",
+        "retry",
+        "retry",
+        "safe_default",
+        "ok",
+        "ungrounded_final",
+        "replaced_final"
+      ],
+      "final_raw": "393 times 12.25 is 60.0, and 11 + 49 is 60.",
+      "final": "Some results could not be computed reliably. Verified results: add({'x': 11, 'y': 49}) = 60.0."
+    },
+    {
+      "case": "B5 skipped tool",
+      "model": "scripted",
+      "events": [
+        "skipped_tool",
+        "ok",
+        "ok"
+      ],
+      "final_raw": "393 times 12.25 is 4814.25, and 11 + 49 is 60.",
+      "final": "393 times 12.25 is 4814.25, and 11 + 49 is 60."
+    }
+  ],
+  "part_a": {
+    "summary": [
+      {
+        "how": "native",
+        "mode": "auto",
+        "errors": 0,
+        "tool_rate_math": 1.0,
+        "tool_rate_other": 0.0,
+        "share_multiply": 0.5,
+        "reprompts": 0
+      },
+      {
+        "how": "native",
+        "mode": "required",
+        "errors": 0,
+        "tool_rate_math": 1.0,
+        "tool_rate_other": 0.0,
+        "share_multiply": 0.5,
+        "reprompts": 0
+      },
+      {
+        "how": "native",
+        "mode": "none",
+        "errors": 0,
+        "tool_rate_math": 1.0,
+        "tool_rate_other": 0.0,
+        "share_multiply": 0.5,
+        "reprompts": 0
+      },
+      {
+        "how": "native",
+        "mode": "pinned:multiply",
+        "errors": 0,
+        "tool_rate_math": 1.0,
+        "tool_rate_other": 0.0,
+        "share_multiply": 0.5,
+        "reprompts": 0
+      },
+      {
+        "how": "enforced",
+        "mode": "auto",
+        "errors": 0,
+        "tool_rate_math": 1.0,
+        "tool_rate_other": 0.0,
+        "share_multiply": 0.5,
+        "reprompts": 0
+      },
+      {
+        "how": "enforced",
+        "mode": "required",
+        "errors": 0,
+        "tool_rate_math": 1.0,
+        "tool_rate_other": 0.5,
+        "share_multiply": 0.33,
+        "reprompts": 7
+      },
+      {
+        "how": "enforced",
+        "mode": "none",
+        "errors": 0,
+        "tool_rate_math": 0.0,
+        "tool_rate_other": 0.0,
+        "share_multiply": null,
+        "reprompts": 0
+      },
+      {
+        "how": "enforced",
+        "mode": "pinned:multiply",
+        "errors": 0,
+        "tool_rate_math": 1.0,
+        "tool_rate_other": 1.0,
+        "share_multiply": 1.0,
+        "reprompts": 7
+      }
+    ],
+    "rows": [
+      {
+        "query": "What is 393 * 12.25?",
+        "mode": "auto",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 393,
+              "y": 12.25
+            }
+          }
+        ]
+      },
+      {
+        "query": "Add 11 and 49.",
+        "mode": "auto",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "add",
+            "args": {
+              "x": 11,
+              "y": 49
+            }
+          }
+        ]
+      },
+      {
+        "query": "What is 2 to the power of 10?",
+        "mode": "auto",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "exponentiate",
+            "args": {
+              "x": 2,
+              "y": 10
+            }
+          }
+        ]
+      },
+      {
+        "query": "Multiply 17 by 23.",
+        "mode": "auto",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 17,
+              "y": 23
+            }
+          }
+        ]
+      },
+      {
+        "query": "Say hello in French.",
+        "mode": "auto",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is the capital of France?",
+        "mode": "auto",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Write a haiku about trains.",
+        "mode": "auto",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Who wrote Hamlet?",
+        "mode": "auto",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is 393 * 12.25?",
+        "mode": "required",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 393,
+              "y": 12.25
+            }
+          }
+        ]
+      },
+      {
+        "query": "Add 11 and 49.",
+        "mode": "required",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "add",
+            "args": {
+              "x": 11,
+              "y": 49
+            }
+          }
+        ]
+      },
+      {
+        "query": "What is 2 to the power of 10?",
+        "mode": "required",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "exponentiate",
+            "args": {
+              "x": 2,
+              "y": 10
+            }
+          }
+        ]
+      },
+      {
+        "query": "Multiply 17 by 23.",
+        "mode": "required",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "y": 23,
+              "x": 17
+            }
+          }
+        ]
+      },
+      {
+        "query": "Say hello in French.",
+        "mode": "required",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is the capital of France?",
+        "mode": "required",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Write a haiku about trains.",
+        "mode": "required",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Who wrote Hamlet?",
+        "mode": "required",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is 393 * 12.25?",
+        "mode": "none",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 393,
+              "y": 12.25
+            }
+          }
+        ]
+      },
+      {
+        "query": "Add 11 and 49.",
+        "mode": "none",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "add",
+            "args": {
+              "x": 11,
+              "y": 49
+            }
+          }
+        ]
+      },
+      {
+        "query": "What is 2 to the power of 10?",
+        "mode": "none",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "exponentiate",
+            "args": {
+              "x": 2,
+              "y": 10
+            }
+          }
+        ]
+      },
+      {
+        "query": "Multiply 17 by 23.",
+        "mode": "none",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 17,
+              "y": 23
+            }
+          }
+        ]
+      },
+      {
+        "query": "Say hello in French.",
+        "mode": "none",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is the capital of France?",
+        "mode": "none",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Write a haiku about trains.",
+        "mode": "none",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Who wrote Hamlet?",
+        "mode": "none",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is 393 * 12.25?",
+        "mode": "pinned:multiply",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 393,
+              "y": 12.25
+            }
+          }
+        ]
+      },
+      {
+        "query": "Add 11 and 49.",
+        "mode": "pinned:multiply",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "add",
+            "args": {
+              "x": 11,
+              "y": 49
+            }
+          }
+        ]
+      },
+      {
+        "query": "What is 2 to the power of 10?",
+        "mode": "pinned:multiply",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "exponentiate",
+            "args": {
+              "x": 2,
+              "y": 10
+            }
+          }
+        ]
+      },
+      {
+        "query": "Multiply 17 by 23.",
+        "mode": "pinned:multiply",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 17,
+              "y": 23
+            }
+          }
+        ]
+      },
+      {
+        "query": "Say hello in French.",
+        "mode": "pinned:multiply",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is the capital of France?",
+        "mode": "pinned:multiply",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Write a haiku about trains.",
+        "mode": "pinned:multiply",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Who wrote Hamlet?",
+        "mode": "pinned:multiply",
+        "enforced": false,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is 393 * 12.25?",
+        "mode": "auto",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 393,
+              "y": 12.25
+            }
+          }
+        ]
+      },
+      {
+        "query": "Add 11 and 49.",
+        "mode": "auto",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "add",
+            "args": {
+              "x": 11,
+              "y": 49
+            }
+          }
+        ]
+      },
+      {
+        "query": "What is 2 to the power of 10?",
+        "mode": "auto",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "exponentiate",
+            "args": {
+              "x": 2,
+              "y": 10
+            }
+          }
+        ]
+      },
+      {
+        "query": "Multiply 17 by 23.",
+        "mode": "auto",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 17,
+              "y": 23
+            }
+          }
+        ]
+      },
+      {
+        "query": "Say hello in French.",
+        "mode": "auto",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is the capital of France?",
+        "mode": "auto",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Write a haiku about trains.",
+        "mode": "auto",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Who wrote Hamlet?",
+        "mode": "auto",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is 393 * 12.25?",
+        "mode": "required",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 393,
+              "y": 12.25
+            }
+          }
+        ]
+      },
+      {
+        "query": "Add 11 and 49.",
+        "mode": "required",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "add",
+            "args": {
+              "y": 49,
+              "x": 11
+            }
+          }
+        ]
+      },
+      {
+        "query": "What is 2 to the power of 10?",
+        "mode": "required",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "exponentiate",
+            "args": {
+              "x": 2,
+              "y": 10
+            }
+          }
+        ]
+      },
+      {
+        "query": "Multiply 17 by 23.",
+        "mode": "required",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 17,
+              "y": 23
+            }
+          }
+        ]
+      },
+      {
+        "query": "Say hello in French.",
+        "mode": "required",
+        "enforced": true,
+        "reprompts": 2,
+        "calls": [
+          {
+            "name": "add",
+            "args": {
+              "y": 3,
+              "x": 5
+            }
+          }
+        ]
+      },
+      {
+        "query": "What is the capital of France?",
+        "mode": "required",
+        "enforced": true,
+        "reprompts": 2,
+        "calls": []
+      },
+      {
+        "query": "Write a haiku about trains.",
+        "mode": "required",
+        "enforced": true,
+        "reprompts": 1,
+        "calls": [
+          {
+            "name": "add",
+            "args": {
+              "y": 101,
+              "x": 104
+            }
+          }
+        ]
+      },
+      {
+        "query": "Who wrote Hamlet?",
+        "mode": "required",
+        "enforced": true,
+        "reprompts": 2,
+        "calls": []
+      },
+      {
+        "query": "What is 393 * 12.25?",
+        "mode": "none",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Add 11 and 49.",
+        "mode": "none",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is 2 to the power of 10?",
+        "mode": "none",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Multiply 17 by 23.",
+        "mode": "none",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Say hello in French.",
+        "mode": "none",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is the capital of France?",
+        "mode": "none",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Write a haiku about trains.",
+        "mode": "none",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "Who wrote Hamlet?",
+        "mode": "none",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": []
+      },
+      {
+        "query": "What is 393 * 12.25?",
+        "mode": "pinned:multiply",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 393,
+              "y": 12.25
+            }
+          }
+        ]
+      },
+      {
+        "query": "Add 11 and 49.",
+        "mode": "pinned:multiply",
+        "enforced": true,
+        "reprompts": 2,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 11,
+              "y": 49
+            }
+          }
+        ]
+      },
+      {
+        "query": "What is 2 to the power of 10?",
+        "mode": "pinned:multiply",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 2,
+              "y": 10
+            }
+          }
+        ]
+      },
+      {
+        "query": "Multiply 17 by 23.",
+        "mode": "pinned:multiply",
+        "enforced": true,
+        "reprompts": 0,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "y": 23,
+              "x": 17
+            }
+          }
+        ]
+      },
+      {
+        "query": "Say hello in French.",
+        "mode": "pinned:multiply",
+        "enforced": true,
+        "reprompts": 2,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 2,
+              "y": 3
+            }
+          }
+        ]
+      },
+      {
+        "query": "What is the capital of France?",
+        "mode": "pinned:multiply",
+        "enforced": true,
+        "reprompts": 1,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 7,
+              "y": 8
+            }
+          }
+        ]
+      },
+      {
+        "query": "Write a haiku about trains.",
+        "mode": "pinned:multiply",
+        "enforced": true,
+        "reprompts": 1,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 3,
+              "y": 7
+            }
+          }
+        ]
+      },
+      {
+        "query": "Who wrote Hamlet?",
+        "mode": "pinned:multiply",
+        "enforced": true,
+        "reprompts": 1,
+        "calls": [
+          {
+            "name": "multiply",
+            "args": {
+              "x": 3,
+              "y": 7
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "part_b_llm": [
+    {
+      "case": "B1 invalid args (corrupted)",
+      "model": "ollama:qwen2.5:7b",
+      "events": [
+        "invalid_args",
+        "ok",
+        "ok",
+        "ungrounded_final",
+        "ok"
+      ],
+      "turns": [
+        {
+          "content": "",
+          "calls": [
+            {
+              "name": "multiply",
+              "args": {
+                "x": "three hundred ninety-three",
+                "y": 12.25
+              }
+            },
+            {
+              "name": "add",
+              "args": {
+                "x": 11,
+                "y": 49
+              }
+            }
+          ]
+        },
+        {
+          "content": "",
+          "calls": [
+            {
+              "name": "add",
+              "args": {
+                "x": 11,
+                "y": 49
+              }
+            }
+          ]
+        },
+        {
+          "content": "The result of 393 multiplied by 12.25 is 4,845.75. And the result of adding 11 and 49 is 60.0.",
+          "calls": []
+        },
+        {
+          "content": "",
+          "calls": [
+            {
+              "name": "multiply",
+              "args": {
+                "x": 393,
+                "y": 12.25
+              }
+            }
+          ]
+        },
+        {
+          "content": "The result of 393 multiplied by 12.25 is 4,814.25. And the result of adding 11 and 49 is 60.0.",
+          "calls": []
+        }
+      ],
+      "final_raw": "The result of 393 multiplied by 12.25 is 4,845.75. And the result of adding 11 and 49 is 60.0.",
+      "final": "The result of 393 multiplied by 12.25 is 4,814.25. And the result of adding 11 and 49 is 60.0."
+    },
+    {
+      "case": "B3 transient x2",
+      "model": "ollama:qwen2.5:7b",
+      "events": [
+        "retry",
+        "retry",
+        "ok",
+        "ok"
+      ],
+      "turns": [
+        {
+          "content": "",
+          "calls": [
+            {
+              "name": "multiply",
+              "args": {
+                "x": 393,
+                "y": 12.25
+              }
+            },
+            {
+              "name": "add",
+              "args": {
+                "x": 11,
+                "y": 49
+              }
+            }
+          ]
+        },
+        {
+          "content": "The result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60.",
+          "calls": []
+        }
+      ],
+      "final_raw": "The result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60.",
+      "final": "The result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60."
+    },
+    {
+      "case": "B4 persistent -> fallback",
+      "model": "ollama:qwen2.5:7b",
+      "events": [
+        "retry",
+        "retry",
+        "retry",
+        "fallback",
+        "ok"
+      ],
+      "turns": [
+        {
+          "content": "",
+          "calls": [
+            {
+              "name": "multiply",
+              "args": {
+                "x": 393,
+                "y": 12.25
+              }
+            },
+            {
+              "name": "add",
+              "args": {
+                "x": 11,
+                "y": 49
+              }
+            }
+          ]
+        },
+        {
+          "content": "The result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60.",
+          "calls": []
+        }
+      ],
+      "final_raw": "The result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60.",
+      "final": "The result of 393 multiplied by 12.25 is 4814.25. Also, the sum of 11 and 49 is 60."
+    },
+    {
+      "case": "B4' persistent, no fallback",
+      "model": "ollama:qwen2.5:7b",
+      "events": [
+        "retry",
+        "retry",
+        "retry",
+        "safe_default",
+        "ok",
+        "ungrounded_final",
+        "retry",
+        "retry",
+        "retry",
+        "safe_default",
+        "ok",
+        "replaced_final"
+      ],
+      "turns": [
+        {
+          "content": "",
+          "calls": [
+            {
+              "name": "multiply",
+              "args": {
+                "y": 12.25,
+                "x": 393
+              }
+            },
+            {
+              "name": "add",
+              "args": {
+                "x": 11,
+                "y": 49
+              }
+            }
+          ]
+        },
+        {
+          "content": "The result of 393 multiplied by 12.25 is 60.0. \n\nFor the addition, 11 + 49 equals 60.",
+          "calls": []
+        },
+        {
+          "content": "",
+          "calls": [
+            {
+              "name": "multiply",
+              "args": {
+                "x": 393,
+                "y": 12.25
+              }
+            },
+            {
+              "name": "add",
+              "args": {
+                "x": 11,
+                "y": 49
+              }
+            }
+          ]
+        },
+        {
+          "content": "The result of 393 multiplied by 12.25 is 60.0. \n\nFor the addition, 11 + 49 equals 60. However, it seems there was an issue with the multiplication calculation. The correct result of 393 * 12.25 is 4835.25. \n\nSo, to summarize:\n- 393 * 12.25 = 4835.25\n- 11 + 49 = 60",
+          "calls": []
+        }
+      ],
+      "final_raw": "The result of 393 multiplied by 12.25 is 60.0. \n\nFor the addition, 11 + 49 equals 60.",
+      "final": "Some results could not be computed reliably. Verified results: add({'x': 11, 'y': 49}) = 60.0."
+    }
+  ]
+}

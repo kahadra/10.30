@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T08:25:45+00:00",
+    "python": "3.14.4",
+    "model": "ollama:qwen2.5:7b"
+  },
+  "part_a": {
+    "A1_wikipedia": {
+      "tool_name": "wikipedia",
+      "raised": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "latency_s": 0.87,
+      "raw_api_without_user_agent": {
+        "status": 403,
+        "body": "Please set a user-agent and respect our robot policy https://w.wiki/4wJS. See also https://phabricator.wikimedia.org/T40"
+      }
+    },
+    "A2_book_stock_tool": {
+      "url": "https://api.example.com/stocks/AAPL",
+      "timeout_set": false,
+      "default": {
+        "raised": true,
+        "error_type": "ConnectionError",
+        "error": "HTTPSConnectionPool(host='api.example.com', port=443): Max retries exceeded with url: /stocks/AAPL (Caused by NameResolutionError(\"HTTPSConnection(host='api.example.com', port=443): Failed to resolve 'api.example.com' ([Errno 11001] getaddrinfo failed)\"))",
+        "latency_s": 0.0
+      },
+      "handle_tool_error=True": {
+        "raised": true,
+        "error_type": "ConnectionError",
+        "error": "HTTPSConnectionPool(host='api.example.com', port=443): Max retries exceeded with url: /stocks/AAPL (Caused by NameResolutionError(\"HTTPSConnection(host='api.example.com', port=443): Failed to resolve 'api.example.com' ([Errno 11001] getaddrinfo failed)\"))"
+      }
+    }
+  },
+  "part_b": [
+    {
+      "scenario": "primary ok",
+      "result": {
+        "ticker": "AAPL",
+        "price": 231.4,
+        "source": "primary"
+      },
+      "attempts": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": 200,
+          "ms": 25
+        }
+      ],
+      "n_requests": 1,
+      "elapsed_s": 0.03
+    },
+    {
+      "scenario": "primary flaky (503 x2)",
+      "result": {
+        "ticker": "AAPL",
+        "price": 231.4,
+        "source": "primary"
+      },
+      "attempts": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "primary",
+          "attempt": 2,
+          "outcome": 503,
+          "ms": 3
+        },
+        {
+          "provider": "primary",
+          "attempt": 3,
+          "outcome": 200,
+          "ms": 2
+        }
+      ],
+      "n_requests": 3,
+      "elapsed_s": 0.31
+    },
+    {
+      "scenario": "primary down -> backup",
+      "result": {
+        "ticker": "AAPL",
+        "price": 231.35,
+        "source": "backup"
+      },
+      "attempts": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": 503,
+          "ms": 22
+        },
+        {
+          "provider": "primary",
+          "attempt": 2,
+          "outcome": 503,
+          "ms": 24
+        },
+        {
+          "provider": "primary",
+          "attempt": 3,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "backup",
+          "attempt": 1,
+          "outcome": 200,
+          "ms": 2
+        }
+      ],
+      "n_requests": 4,
+      "elapsed_s": 0.35
+    },
+    {
+      "scenario": "primary slow (timeout) -> backup",
+      "result": {
+        "ticker": "AAPL",
+        "price": 231.35,
+        "source": "backup"
+      },
+      "attempts": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": "timeout",
+          "ms": 503
+        },
+        {
+          "provider": "primary",
+          "attempt": 2,
+          "outcome": "timeout",
+          "ms": 515
+        },
+        {
+          "provider": "primary",
+          "attempt": 3,
+          "outcome": "timeout",
+          "ms": 514
+        },
+        {
+          "provider": "backup",
+          "attempt": 1,
+          "outcome": 200,
+          "ms": 2
+        }
+      ],
+      "n_requests": 4,
+      "elapsed_s": 1.84
+    },
+    {
+      "scenario": "both down -> cache",
+      "result": {
+        "ticker": "AAPL",
+        "price": 229.87,
+        "as_of": "2026-10-23T20:00:00Z",
+        "source": "cache"
+      },
+      "attempts": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": 503,
+          "ms": 3
+        },
+        {
+          "provider": "primary",
+          "attempt": 2,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "primary",
+          "attempt": 3,
+          "outcome": 503,
+          "ms": 13
+        },
+        {
+          "provider": "backup",
+          "attempt": 1,
+          "outcome": 503,
+          "ms": 17
+        },
+        {
+          "provider": "backup",
+          "attempt": 2,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "backup",
+          "attempt": 3,
+          "outcome": 503,
+          "ms": 3
+        },
+        {
+          "provider": "cache",
+          "attempt": 1,
+          "outcome": "hit"
+        }
+      ],
+      "n_requests": 6,
+      "elapsed_s": 0.64
+    },
+    {
+      "scenario": "invalid input",
+      "result": {
+        "error": "invalid_ticker",
+        "detail": "Use an exchange ticker like AAPL.",
+        "retryable": false
+      },
+      "attempts": [],
+      "n_requests": 0
+    }
+  ],
+  "part_c": {
+    "C1_book_wikipedia_loop": {
+      "query": "What was the most impressive thing about Buzz Aldrin?",
+      "tool_calls": [
+        {
+          "tool": "wikipedia",
+          "args": {
+            "query": "Buzz Aldrin most impressive thing"
+          },
+          "raised": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+        }
+      ],
+      "final": null,
+      "loop_crashed": true
+    },
+    "C2_hardened_backup": {
+      "query": "What is the stock price of Apple?",
+      "tool_calls": [
+        {
+          "tool": "get_stock_price",
+          "args": {
+            "ticker": "AAPL"
+          },
+          "result": "{\"ticker\": \"AAPL\", \"price\": 231.35, \"source\": \"backup\"}"
+        }
+      ],
+      "final": "The current stock price of Apple (AAPL) is $231.35. The source indicates that this value might be stale, so it's best to verify with a more recent source if needed.",
+      "loop_crashed": false,
+      "provider_log": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": 503,
+          "ms": 30
+        },
+        {
+          "provider": "primary",
+          "attempt": 2,
+          "outcome": 503,
+          "ms": 4
+        },
+        {
+          "provider": "primary",
+          "attempt": 3,
+          "outcome": 503,
+          "ms": 26
+        },
+        {
+          "provider": "backup",
+          "attempt": 1,
+          "outcome": 200,
+          "ms": 3
+        }
+      ]
+    },
+    "C3_hardened_cache": {
+      "query": "What is the stock price of Apple?",
+      "tool_calls": [
+        {
+          "tool": "get_stock_price",
+          "args": {
+            "ticker": "AAPL"
+          },
+          "result": "{\"ticker\": \"AAPL\", \"price\": 229.87, \"as_of\": \"2026-10-23T20:00:00Z\", \"source\": \"cache\"}"
+        }
+      ],
+      "final": "The latest stock price of Apple (AAPL) is $229.87 as of 2026-10-23T20:00:00Z. Please note that this value may be stale.",
+      "loop_crashed": false,
+      "provider_log": [
+        {
+          "provider": "primary",
+          "attempt": 1,
+          "outcome": 503,
+          "ms": 3
+        },
+        {
+          "provider": "primary",
+          "attempt": 2,
+          "outcome": 503,
+          "ms": 4
+        },
+        {
+          "provider": "primary",
+          "attempt": 3,
+          "outcome": 503,
+          "ms": 3
+        },
+        {
+          "provider": "backup",
+          "attempt": 1,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "backup",
+          "attempt": 2,
+          "outcome": 503,
+          "ms": 2
+        },
+        {
+          "provider": "backup",
+          "attempt": 3,
+          "outcome": 503,
+          "ms": 4
+        },
+        {
+          "provider": "cache",
+          "attempt": 1,
+          "outcome": "hit"
+        }
+      ]
+    }
+  }
+}

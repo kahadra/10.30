@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "run_at": "2026-10-26T09:34:58+00:00",
+    "llm": "qwen2.5:7b via Ollama /v1"
+  },
+  "hypothesis": "langchain-ollama drops tool_choice; Ollama's OpenAI-compatible API honours it",
+  "summary": {
+    "auto": {
+      "tool_rate_math": 1.0,
+      "tool_rate_other": 0.0,
+      "errors": 0
+    },
+    "none": {
+      "tool_rate_math": 1.0,
+      "tool_rate_other": 0.0,
+      "errors": 0
+    },
+    "required": {
+      "tool_rate_math": 1.0,
+      "tool_rate_other": 0.0,
+      "errors": 0
+    },
+    "multiply": {
+      "tool_rate_math": 1.0,
+      "tool_rate_other": 0.0,
+      "errors": 0
+    }
+  },
+  "verdict": "refuted (ignored by the server/model too)",
+  "rows": [
+    {
+      "mode": "auto",
+      "query": "What is 393 * 12.25?",
+      "calls": [
+        "multiply"
+      ],
+      "error": null
+    },
+    {
+      "mode": "auto",
+      "query": "Add 11 and 49.",
+      "calls": [
+        "add"
+      ],
+      "error": null
+    },
+    {
+      "mode": "auto",
+      "query": "Multiply 17 by 23.",
+      "calls": [
+        "multiply"
+      ],
+      "error": null
+    },
+    {
+      "mode": "auto",
+      "query": "What is 7.5 plus 2.25?",
+      "calls": [
+        "add"
+      ],
+      "error": null
+    },
+    {
+      "mode": "auto",
+      "query": "Say hello in French.",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "auto",
+      "query": "What is the capital of France?",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "auto",
+      "query": "Write a haiku about trains.",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "auto",
+      "query": "Who wrote Hamlet?",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "none",
+      "query": "What is 393 * 12.25?",
+      "calls": [
+        "multiply"
+      ],
+      "error": null
+    },
+    {
+      "mode": "none",
+      "query": "Add 11 and 49.",
+      "calls": [
+        "add"
+      ],
+      "error": null
+    },
+    {
+      "mode": "none",
+      "query": "Multiply 17 by 23.",
+      "calls": [
+        "multiply"
+      ],
+      "error": null
+    },
+    {
+      "mode": "none",
+      "query": "What is 7.5 plus 2.25?",
+      "calls": [
+        "add"
+      ],
+      "error": null
+    },
+    {
+      "mode": "none",
+      "query": "Say hello in French.",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "none",
+      "query": "What is the capital of France?",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "none",
+      "query": "Write a haiku about trains.",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "none",
+      "query": "Who wrote Hamlet?",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "required",
+      "query": "What is 393 * 12.25?",
+      "calls": [
+        "multiply"
+      ],
+      "error": null
+    },
+    {
+      "mode": "required",
+      "query": "Add 11 and 49.",
+      "calls": [
+        "add"
+      ],
+      "error": null
+    },
+    {
+      "mode": "required",
+      "query": "Multiply 17 by 23.",
+      "calls": [
+        "multiply"
+      ],
+      "error": null
+    },
+    {
+      "mode": "required",
+      "query": "What is 7.5 plus 2.25?",
+      "calls": [
+        "add"
+      ],
+      "error": null
+    },
+    {
+      "mode": "required",
+      "query": "Say hello in French.",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "required",
+      "query": "What is the capital of France?",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "required",
+      "query": "Write a haiku about trains.",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "required",
+      "query": "Who wrote Hamlet?",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "multiply",
+      "query": "What is 393 * 12.25?",
+      "calls": [
+        "multiply"
+      ],
+      "error": null
+    },
+    {
+      "mode": "multiply",
+      "query": "Add 11 and 49.",
+      "calls": [
+        "add"
+      ],
+      "error": null
+    },
+    {
+      "mode": "multiply",
+      "query": "Multiply 17 by 23.",
+      "calls": [
+        "multiply"
+      ],
+      "error": null
+    },
+    {
+      "mode": "multiply",
+      "query": "What is 7.5 plus 2.25?",
+      "calls": [
+        "add"
+      ],
+      "error": null
+    },
+    {
+      "mode": "multiply",
+      "query": "Say hello in French.",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "multiply",
+      "query": "What is the capital of France?",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "multiply",
+      "query": "Write a haiku about trains.",
+      "calls": [],
+      "error": null
+    },
+    {
+      "mode": "multiply",
+      "query": "Who wrote Hamlet?",
+      "calls": [],
+      "error": null
+    }
+  ],
+  "payload_check": {
+    "method": "httpx request hook on ChatOpenAI -> Ollama /v1",
+    "none": {
+      "sent_tool_choice": "none",
+      "tool_calls": [
+        "multiply"
+      ],
+      "query": "What is 393 * 12.25?"
+    },
+    "required": {
+      "sent_tool_choice": "required",
+      "tool_calls": [],
+      "query": "Who wrote Hamlet?"
+    },
+    "conclusion": "tool_choice reaches the server and is ignored there (Ollama), not dropped by the client"
+  }
+}
