@@ -1,9 +1,9 @@
-# 출처와 수치 기록 — 2026.10.30 AI 에이전트 시스템과 도구 사용 세미나
+# 출처와 수치 기록 — 2026.10.30 AI 에이전트의 개념과 구현 조건 세미나
 
 ## 원문
 
 - Michael Albada, *Building Applications with AI Agents: Designing and Implementing Multiagent Systems*, O'Reilly.
-  쪽 번호는 인쇄본 기준. 책 개관(4–10장 슬라이드)은 서문(p.xiii–xvi), 목차, 각 장 도입부와 결론을 발표자가 요약한 것입니다.
+  쪽 번호는 인쇄본 기준. 4–7장과 12–18장 슬라이드는 서문, 각 장 도입부·결론과 표기한 절을 발표자가 요약한 것입니다. 쪽 번호가 없는 항목은 절 이름으로 표기했습니다.
 - 책 저장소: github.com/michaelalbada/BuildingApplicationsWithAIAgents, commit `eeb325a`
   (`ch4-tool-use/third_party/book-repo`에 얕은 복제).
 - Model Context Protocol 공식 Python SDK `mcp` 1.30.0 (FastMCP, stdio·streamable HTTP).
@@ -15,28 +15,28 @@
 
 | 장 | 내용 | 근거 |
 |---|---|---|
-| 3 | 책 소개, 오늘 다루는 방식 | 서문 p.xiii–xvi |
+| 3 | 멀티에이전트 시대의 질문, 현장의 질문 | 서문 p.xiii–xiv, Ch.1 “Defining AI Agents”·“The Pretraining Revolution” |
 | 4 | 에이전트의 정의, 자율성의 스펙트럼, agentic system | Ch.1 p.1–2 |
-| 5 | 코드 · 워크플로 · 챗봇/RAG · 에이전트의 선택 기준 | Ch.1 “Workflows and Agents” p.8–11 |
-| 6 | 13장 구성과 책의 성격 | 서문 “Navigating This Book”, “What This Book Is Not”, 목차 |
-| 7 | 첫 에이전트(주문 취소), 설계 요소, UX | Ch.2 p.17–39, Ch.3 p.41–69 |
-| 8 | 4–8장 요약 | 서문 장 소개, Ch.5–8 결론 (발표자 요약) |
-| 9 | 9–13장 요약 | 서문 장 소개, Ch.9–13 결론 (발표자 요약). “3분의 1 이상”은 목차 쪽수 기준(9–13장 205–313쪽, 본문 약 313쪽 중 약 35%) |
-| 10 | 도구 = 실제 행동의 통로 | Ch.3 결론 p.69 |
-| 11 | 도구 호출 다섯 단계 | Ch.4 p.72–75, `code/results/r1_book_calculator.json` |
-| 12 | 도구 유형 6종 | Ch.4 p.73–87 (발표자 정리) |
-| 13 | 메타데이터와 도구 수 | Ch.4 p.73, `code/results/d1_tool_selection.json`. 지표 정의는 Ch.9 |
-| 14 | API 도구 권고와 장애 처리 | Ch.4 p.75–78, `d2_api_tools.json` (`part_b`), 책 예제 실행 기록은 `d2_api_tools_run1_offline.json`·`part_a`·`part_c` |
-| 15 | MCP 구조, 플러그인, 선택 정확도 | Ch.4 p.78–84, `r3_book_mcp_handshake.json`, `d3_mcp.json` (질의 12개, 정답 라벨은 발표자 지정) |
-| 16 | 사고 사례, 최소 권한, 세 설계 비교, 모델 3회 | Ch.4 p.84–85, `d4_stateful_sqlite.json` (`battery`, `llm`) |
-| 17 | 모델이 도구를 만드는 경우 | Ch.4 p.85–87 (실험 없음) |
-| 18 | tool_choice, 검증·재시도·대체, 최종 답 검사 | Ch.4 p.87–88, `d5_tool_choice.json` (`part_a`, `part_b_llm`) |
-| 19 | 정리, 읽는 순서 추천 | 발표자 의견 |
-| 21 | 책 예제를 그대로 실행했을 때 | `r1_*`, `r3_*`, `d2_*`, `d3_*` 결과 파일 |
+| 5 | 코드 · 워크플로 · 챗봇/RAG · 에이전트의 선택 기준과 책의 예 | Ch.1 “Workflows and Agents” p.8–11 |
+| 6 | 첫 에이전트(주문 취소), 구성 요소, UX | Ch.1 “Model Selection”, Ch.2 “Our First Agent System”·“Core Components” |
+| 7 | 구현 조건 여섯 가지와 “없으면” | 서문 장 소개, Ch.4–13 (발표자 정리) |
+| 8 | 도구 호출 다섯 단계 | Ch.4 p.72–75, `code/results/r1_book_calculator.json` |
+| 9 | 메타데이터와 도구 수, 검색어 설명 | Ch.4 p.73, `d1_tool_selection.json`, `h_w_desc.json`. 지표 정의는 Ch.9 |
+| 10 | API 장애 처리, 최종 답 검사, tool_choice | Ch.4 p.75–78·87–88, `d2_api_tools.json` (`part_b`), `d5_tool_choice.json` (`part_a`, `part_b_llm`) |
+| 11 | 사고 사례, 최소 권한, 세 설계 비교, 모델 3회 | Ch.4 p.84–85, `d4_stateful_sqlite.json` (`battery`, `llm`) |
+| 12 | 에이전트 유형, 도구 선택, 컨텍스트 엔지니어링 | Ch.5 “Agent Types”·“Tool Selection”·“Context Engineering”·결론 |
+| 13 | 지식과 메모리, 메모리 방식, 학습 | Ch.6 도입부·결론, Ch.7 도입부·결론 |
+| 14 | 출시 전 검증, 머그컵 환불 사례 | Ch.9 “Measuring Agentic Systems”·“Component Evaluation”·“Consistency” |
+| 15 | 감시 질문, 회귀 테스트, 개선 루프 | Ch.10 도입부·“Regression Trace Collection”, Ch.11 결론 |
+| 16 | 단일→멀티에이전트, 공급망 예, 추가 원칙 | Ch.8 “How Many Agents Do I Need?”·“Principles for Adding Agents”, `d1_tool_selection.json` |
+| 17 | MCP, A2A Agent Card, MCP 선택 정확도 | Ch.4 p.78–84, Ch.8 “Agent-to-Agent Protocol”, `h_mcp_fix.json`, `d3_mcp.json` (질의 12개, 정답 라벨은 발표자 지정) |
+| 18 | 고유 위험, 사례, 처방, 사람의 역할 | Ch.12 도입부·“The Unique Risks”·결론, Ch.13 “The Changing Role of Humans”, Ch.3 결론 |
+| 19 | 정리 | 발표 요약 |
+| 20–26 | 부록: 도구 선택 전체 수치, tool_choice, 도구 종류, 책 예제 원본 실행, 가설 검증, 실행 환경, 출처 | 각 슬라이드 하단 표기 |
 
 ## 수치의 조건과 한계
 
-실험 이름과 슬라이드: D1 = 13장, D2 = 14장, R3·D3 = 15장, D4 = 16장, D5 = 18장, R1 = 11장.
+실험 이름과 슬라이드: R1 = 8장, D1 = 9·16장, D2·D5 = 10장(D5 상세는 부록 21장), D4 = 11장, R3·D3 = 17장.
 
 - **모델**: `ollama:qwen2.5:7b`, temperature 0, RTX 3050 6GB. 다른 모델로 일반화하지 않습니다.
 - **D1**: 질의 24개 × 조건 6개, 반복 1회. 첫 응답만 채점하고 도구는 실행하지 않습니다. 입력 토큰은 Ollama가 보고한 값입니다.
@@ -50,4 +50,4 @@
 - **D5**: 질의 8개(산술 4 + 일반 4). "스크립트" 사례는 모델 응답을 미리 정한 것으로 실제 모델 결과가 아닙니다.
   "모델" 사례 중 B1은 첫 호출 인자를 의도적으로 망가뜨린 조건입니다. 근거 검사는 숫자 일치와 실패한 호출의 미해결 여부만
   보는 간단한 규칙이며, 자연어 답의 모든 오류를 잡지는 못합니다.
-- 책 코드 정오표(부록 22장)의 인쇄 오류 항목은 인쇄본 텍스트 추출본과 저장소 코드를 대조한 결과입니다.
+- 책 코드 정오표의 인쇄 오류 항목은 인쇄본 텍스트 추출본과 저장소 코드를 대조한 결과입니다.
